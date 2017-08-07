@@ -7,7 +7,7 @@
 
                 <itinerary></itinerary>
 
-                <passenger></passenger>
+                <passengerlist></passengerlist>
 
                 <contactdetails></contactdetails>
 
@@ -28,16 +28,16 @@
 <script>
 
     import PriceBox from '../components/PriceBox.vue'
-    import Passenger from '../components/Passenger/Passenger.vue'
     import Itinerary from '../components/Itinerary/Itinerary.vue'
     import Contact from '../components/Contact.vue'
     import Pay from '../components/Pay.vue'
+    import PassengerList from '../components/PassengerList.vue'
 
 
     export default {
         components: {
             'pricebox': PriceBox,
-            'passenger': Passenger,
+            'passengerlist': PassengerList,
             'itinerary': Itinerary,
             'contactdetails': Contact,
             'paymentdetails': Pay
