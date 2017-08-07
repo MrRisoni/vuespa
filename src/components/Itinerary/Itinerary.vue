@@ -13,7 +13,7 @@
 
 
                     <div class="col-md-2">
-                       Duration 6h 45m
+                        Duration 6h 45m
                     </div>
 
 
@@ -32,10 +32,48 @@
 
             <div class="panel-body">
 
-                <dep-airport :trigram="depAirport" ></dep-airport>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dep-airport :data="depDetails"></dep-airport>
+
+                    </div>
 
 
-                <arr-airport :trigram="arrAirport" ></arr-airport>
+                    <div class="col-md-4">
+                        <arr-airport :data="retDetails"></arr-airport>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                Stops: {{stops}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                Duration:
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                Wait time:
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1">
+                        <button class="btn btn-sm btn-primary">Expand </button>
+                    </div>
+
+
+                </div>
+
 
             </div>
         </div>
@@ -48,23 +86,24 @@
     import Airport from './Airport.vue'
 
 
-
     export default {
         components: {
-            'depAirport' : Airport,
-            'arrAirport' : Airport,
+            'depAirport': Airport,
+            'arrAirport': Airport,
         },
         data() {
-            return {
-
-            }
+            return {}
         },
         computed: {
-            depAirport() {
-                return this.$store.state.depAirport
+            depDetails() {
+                return this.$store.state.itinerary.info.departure
             },
-            arrAirport() {
-                return this.$store.state.arrAirport
+            retDetails() {
+                return this.$store.state.itinerary.info.return
+            },
+            stops()
+            {
+                return this.$store.state.itinerary.info.stops
             }
         }
     }
