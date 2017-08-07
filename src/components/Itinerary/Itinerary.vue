@@ -32,9 +32,11 @@
 
             <div class="panel-body">
 
-                <dep-airport trigram="EFL"></dep-airport>
+                <dep-airport :trigram="depAirport" ></dep-airport>
 
-                <arr-airport></arr-airport>
+
+                <arr-airport :trigram="arrAirport" ></arr-airport>
+
             </div>
         </div>
 
@@ -54,11 +56,15 @@
         },
         data() {
             return {
+
             }
         },
         computed: {
-            depAirport () {
+            depAirport() {
                 return this.$store.state.depAirport
+            },
+            arrAirport() {
+                return this.$store.state.arrAirport
             }
         }
     }
