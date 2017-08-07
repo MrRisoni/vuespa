@@ -7,7 +7,8 @@
 
                 <h1>{{ msg }}</h1>
 
-                <button class="btn btn-primary btn-success">Go</button>
+
+                <passenger></passenger>
 
             </div>
 
@@ -26,9 +27,11 @@
 
 <script>
     import PriceBox from '../components/PriceBox.vue'
+    import Passenger from '../components/Passenger/Passenger.vue'
     export default {
         components: {
-            'pricebox' : PriceBox
+            'pricebox' : PriceBox,
+            'passenger' : Passenger
         },
         data() {
             return {
