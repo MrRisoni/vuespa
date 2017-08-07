@@ -5,8 +5,8 @@
 
             <div class="bookapp">
 
-                <h1>{{ msg }}</h1>
 
+                <itinerary></itinerary>
 
                 <passenger></passenger>
 
@@ -26,17 +26,19 @@
 </template>
 
 <script>
+
     import PriceBox from '../components/PriceBox.vue'
     import Passenger from '../components/Passenger/Passenger.vue'
+    import Itinerary from '../components/Itinerary/Itinerary.vue'
+
     export default {
         components: {
             'pricebox' : PriceBox,
-            'passenger' : Passenger
+            'passenger' : Passenger,
+            'itinerary' : Itinerary,
         },
         data() {
-            return {
-                msg: 'Fill the data'
-            }
+
         }
     }
 </script>
