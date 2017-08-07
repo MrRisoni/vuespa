@@ -13,10 +13,16 @@
     export default {
         data() {
             return {
-                msg: 'Passenger',
-                bags :0
+                msg: 'Passenger'
+
+            }
+        },
+        computed: {
+            bags () {
+                return this.$store.state.bags
             }
         }
+
     }
 </script>
 

@@ -2,6 +2,7 @@
 
     <div id="app">
         <div class="container-fluid">
+            <img src="./assets/logo.png">
             <router-view></router-view>
         </div>
     </div>

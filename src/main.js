@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import { sync } from 'vuex-router-sync'
+
+
 
 
 require('../node_modules/bootstrap/less/bootstrap.less')
@@ -19,18 +22,24 @@ const store = new Vuex.Store({
     },
     mutations: {
         increment (state) {
-            state.count++
+            state.bags++
         }
     }
 })
 
 
+sync(store, router)
+
+
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    store,
     router,
+    store,
     template: '<App/>',
     components: {App},
 
 })
+
+
