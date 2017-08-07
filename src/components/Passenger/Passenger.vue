@@ -3,7 +3,7 @@
 
         <h1>{{ msg }}</h1>
 
-
+        Bags: {{bags}}
         <button class="btn btn-primary btn-success">Go</button>
 
     </div>
@@ -13,7 +13,8 @@
     export default {
         data() {
             return {
-                msg: 'Passenger'
+                msg: 'Passenger',
+                bags :0
             }
         }
     }

@@ -6,16 +6,31 @@ import router from './router'
 import Vuex from 'vuex'
 
 
-
 require('../node_modules/bootstrap/less/bootstrap.less')
 
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
+
+const store = new Vuex.Store({
+    state: {
+        count: 0,
+        bags : 12
+    },
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    }
+})
+
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
+    store,
     router,
     template: '<App/>',
-    components: {App}
+    components: {App},
+
 })
