@@ -17,7 +17,7 @@
 
 
         <div class="col-md-2">
-                <pricebox></pricebox>
+            <pricebox></pricebox>
         </div>
 
 
@@ -33,12 +33,12 @@
 
     export default {
         components: {
-            'pricebox' : PriceBox,
-            'passenger' : Passenger,
-            'itinerary' : Itinerary,
+            'pricebox': PriceBox,
+            'passenger': Passenger,
+            'itinerary': Itinerary,
         },
         data() {
-
+            return {}
         }
     }
 </script>

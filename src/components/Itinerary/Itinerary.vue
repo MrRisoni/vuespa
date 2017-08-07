@@ -32,7 +32,7 @@
 
             <div class="panel-body">
 
-                <dep-airport></dep-airport>
+                <dep-airport trigram="EFL"></dep-airport>
 
                 <arr-airport></arr-airport>
             </div>
@@ -45,13 +45,21 @@
 
     import Airport from './Airport.vue'
 
+
+
     export default {
         components: {
             'depAirport' : Airport,
             'arrAirport' : Airport,
         },
         data() {
-
+            return {
+            }
+        },
+        computed: {
+            depAirport () {
+                return this.$store.state.depAirport
+            }
         }
     }
 </script>

@@ -18,7 +18,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         count: 0,
-        bags : 12
+        bags : 12,
+        depAirport : 'RHO',
+        arrAirport: 'LHR'
     },
     mutations: {
         increment (state) {
