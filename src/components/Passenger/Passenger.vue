@@ -23,7 +23,14 @@
                     <div class="panel-body">
 
                         <name></name>
+
+                        <upgradefare></upgradefare>
+
+                        <bags></bags>
+
+                        <insurance></insurance>
                         Bags: {{bags}}
+
                         <button class="btn btn-primary btn-success">Go</button>
                     </div>
 
@@ -36,11 +43,17 @@
 <script>
 
     import Name from './Name.vue'
+    import Bags from './Bags.vue'
+    import UpgradeFare from './UpgradeFare.vue'
+    import Insurance from './Insurance.vue'
 
 
     export default {
         components: {
-            'name': Name
+            'name': Name,
+            'bags' : Bags,
+            'upgradefare' : UpgradeFare,
+            'insurance' : Insurance
         },
         data() {
             return {}

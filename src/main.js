@@ -17,6 +17,20 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
+        passnegers: [
+            {
+                id : 1,
+                type : 'ADT'
+            },
+            {
+                id : 2,
+                type: 'ADT'
+            },
+            {
+                id : 3,
+                type: 'CNN'
+            }
+        ],
         count: 0,
         bags : 12,
         depAirport : 'RHO',
