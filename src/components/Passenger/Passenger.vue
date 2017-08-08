@@ -10,7 +10,7 @@
 
                         <div class="row">
                             <div class="col-md-5">
-                                Passenger #
+                                Passenger # {{id}}
                             </div>
 
 
@@ -31,7 +31,9 @@
                         <insurance></insurance>
                         Bags: {{bags}}
 
-                        <button class="btn btn-primary btn-success">Go</button>
+                        <button class="btn btn-primary btn-success"
+                                @click="increment"
+                        >Go</button>
                     </div>
 
                 </div>
@@ -49,6 +51,7 @@
 
 
     export default {
+        props:['id'],
         components: {
             'name': Name,
             'bags' : Bags,
@@ -62,7 +65,12 @@
             bags() {
                 return this.$store.state.bags
             }
-        }
+        },
+        methods : {
+            increment() {
+                this.$store.commit('addPassenger');
+            }
+        },
 
     }
 </script>

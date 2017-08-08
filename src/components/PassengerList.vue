@@ -1,10 +1,11 @@
 <template>
     <div class="passengerlist">
 
-        <passenger></passenger>
-        <passenger></passenger>
 
-        <passenger></passenger>
+
+        <div v-for="psgr of passengers">
+            <passenger :id="psgr.id"></passenger>
+        </div>
 
 
     </div>
@@ -22,6 +23,11 @@
         data() {
             return {
 
+            }
+        },
+        computed: {
+            passengers() {
+                return this.$store.state.passengers
             }
         }
     }

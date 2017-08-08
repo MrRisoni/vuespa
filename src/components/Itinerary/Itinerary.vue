@@ -22,7 +22,7 @@
                     </div>
 
 
-                    <div class="col-md-2 col-md-offset-4">
+                    <div class="col-md-2 col-md-offset-2">
                         Monday 7 Aug 2017
                     </div>
 
@@ -33,13 +33,13 @@
             <div class="panel-body">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <dep-airport :data="depDetails"></dep-airport>
 
                     </div>
 
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <arr-airport :data="retDetails"></arr-airport>
 
                     </div>

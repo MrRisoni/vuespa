@@ -17,7 +17,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        passnegers: [
+        passengers: [
             {
                 id : 1,
                 type : 'ADT'
@@ -202,6 +202,13 @@ const store = new Vuex.Store({
     mutations: {
         increment (state) {
             state.bags++
+        },
+        addPassenger(state) {
+          let pap = {
+              id : 4,
+              type: 'INF'
+          }
+          state.passengers.push(pap)
         }
     }
 })

@@ -2,20 +2,10 @@
 
 > Single Page Online Travel Agency Application
 
-## Build Setup
+inspired from kiwi.com
+(see otaspa for the React version)
 
-``` bash
-# install dependencies
-npm install
+This version contains
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Vuex
+and better layout
