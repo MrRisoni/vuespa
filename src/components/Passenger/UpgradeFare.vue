@@ -6,7 +6,7 @@
             <div class="col-md-12">
 
                 <div class="panel panel-primary">
-                    <div class="panel-heading"> Upgrade Fare</div>
+                    <div class="panel-heading"> Upgrade your Seat!</div>
                     <div class="panel-body">
 
                         <div class="row">
@@ -87,6 +87,8 @@
                                     </div>
 
 
+
+                                    <div class="panel-footer">{{startAirport}}-{{endAirport}}</div>
                                 </div>
 
 
@@ -167,6 +169,9 @@
                                         </div>
                                     </div>
 
+                                    <div class="panel-footer">{{endAirport}} - {{startAirport}}</div>
+
+
 
                                 </div>
 
@@ -218,6 +223,7 @@
 </script>
 
 <style>
+
 
     .free_package {
         color: #49fe6a;
