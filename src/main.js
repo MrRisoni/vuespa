@@ -4,9 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-import { sync } from 'vuex-router-sync'
-
-
+import {sync} from 'vuex-router-sync'
 
 
 require('../node_modules/bootstrap/less/bootstrap.less')
@@ -17,42 +15,39 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        passengers: [
+        passengers: [{
+            id: 1,
+            type: 'ADT'
+        },
             {
-                id : 1,
-                type : 'ADT'
-            },
-            {
-                id : 2,
+                id: 2,
                 type: 'ADT'
             },
             {
-                id : 3,
+                id: 3,
                 type: 'CNN'
             }
         ],
         count: 0,
-        bags : 12,
-        depAirport : 'RHO',
+        bags: 12,
+        depAirport: 'RHO',
         arrAirport: 'LHR',
-        upsales : [
-            {
-                id : 1,
-                title : 'SMS',
-                price : 1.5
-            },
+        upsales: [{
+            id: 1,
+            title: 'SMS',
+            price: 1.5
+        },
             {
                 id: 2,
                 title: 'Web check-in',
                 price: 3
             }
         ],
-        insuranceInfo: [
-            {
-                id: 1,
-                title: "No insurance",
-                price: 0
-            },
+        insuranceInfo: [{
+            id: 1,
+            title: "No insurance",
+            price: 0
+        },
             {
                 id: 2,
                 title: "Globy Classic",
@@ -69,52 +64,106 @@ const store = new Vuex.Store({
                 price: 39.45
             }
         ],
-        bagAllowance : [
-            {
-                carrier: 'FR',
-                maxBags :3,
-                bags: [
-                    {
-                        id : 1,
-                        title : '15KG',
-                        price : 12
-                    },
-                    {
-                        id : 2,
-                        title : '25KG',
-                        price : 35
-                    }
-                ]
+        bagAllowance: [{
+            carrier: 'FR',
+            maxBags: 3,
+            bags: [{
+                id: 1,
+                title: '119 × 119 × 81 cm, 23 kg',
+                price: 12
             },
+                {
+                    id: 2,
+                    title: '25KG',
+                    price: 35
+                }
+            ]
+        },
             {
                 carrier: 'A3',
-                maxBags :2,
-                bags: [
+                maxBags: 2,
+                bags: [{
+                    id: 1,
+                    title: '12KG',
+                    price: 12
+                },
                     {
-                        id : 1,
-                        title : '12KG',
-                        price : 12
-                    },
-                    {
-                        id : 2,
-                        title : '25KG',
-                        price : 18
+                        id: 2,
+                        title: '25KG',
+                        price: 18
                     }
                 ]
             },
             {
                 carrier: 'BA',
-                maxBags :2,
-                bags: [
+                maxBags: 2,
+                bags: [{
+                    id: 1,
+                    title: '22KG',
+                    price: 15
+                },
                     {
-                        id : 1,
-                        title : '22KG',
-                        price : 15
+                        id: 2,
+                        title: '30KG',
+                        price: 45
+                    }
+                ]
+            }
+        ],
+        upgradeFare: [{
+            carrier: "FR",
+            options: []
+        },
+            {
+                carrier: "A3",
+                options: [{
+                    id: 1,
+                    name: 'Light',
+                    packages: [{
+                        title: 'cancellation'
+                    }]
+                },
+                    {
+                        id: 2,
+                        name: 'Flex',
+                        packages: [{
+                            title: 'wifi'
+                        }]
+                    }
+                ]
+            },
+            {
+                carrier: "BA",
+                options: [{
+                    id: 1,
+                    name: 'Basic',
+                    packages: []
+                },
+                    {
+                        id: 2,
+                        name: 'Basic Plus',
+                        packages: [{
+                            title: 'Wifi',
+                            status : 'notincl'
+                        }]
                     },
                     {
-                        id : 2,
-                        title : '30KG',
-                        price : 45
+                        id: 3,
+                        name: 'Economy Premium',
+                        packages: [{
+                            title: 'Wifi',
+                            status : 'fee'
+                        }]
+                    },
+                    {
+                        id: 4,
+                        name: 'Economy Lux',
+                        packages: [{
+                            title: 'Wifi',
+                            status : 'free'
+                        },
+                            {   title: 'Cancellation',
+                                status : 'free'}]
                     }
                 ]
             }
@@ -125,27 +174,26 @@ const store = new Vuex.Store({
                     AirPortName: 'Diagoras Airport',
                     IATA: 'RHO',
                 },
-                return : {
+                return: {
                     AirPortName: 'Heathrow Intl Airport',
                     IATA: 'LHR'
                 },
                 stops: 2,
-                wait :'3h 50m',
-                duration :'6h 20m'
+                wait: '3h 50m',
+                duration: '6h 20m'
             },
-            outbound: [
-                {
-                    fromCity: 'Rhodes',
-                    toCity: 'Athens',
-                    fromAirport: 'RHO, Diagoras Airport',
-                    toAirport: 'ATH, Eleftherios Venizelos Intl Arpt',
-                    duration: '00:50',
-                    depDateTime: '10:10 Friday, 23 June 2017',
-                    arrDateTime: '11:05 Friday, 23 June 2017',
-                    airline: 'Ryanair',
-                    code: 'FR',
-                    waitTime: '01:20'
-                },
+            outbound: [{
+                fromCity: 'Rhodes',
+                toCity: 'Athens',
+                fromAirport: 'RHO, Diagoras Airport',
+                toAirport: 'ATH, Eleftherios Venizelos Intl Arpt',
+                duration: '00:50',
+                depDateTime: '10:10 Friday, 23 June 2017',
+                arrDateTime: '11:05 Friday, 23 June 2017',
+                airline: 'Ryanair',
+                code: 'FR',
+                waitTime: '01:20'
+            },
                 {
                     fromCity: 'Athens',
                     toCity: 'Paris',
@@ -170,19 +218,19 @@ const store = new Vuex.Store({
                     code: 'BA',
                     waitTime: ''
                 }
-            ], inbound: [
-                {
-                    fromCity: 'London',
-                    toCity: 'Athens',
-                    fromAirport: 'LHR, London Intl Arpt',
-                    toAirport: 'ATH, Eleftherios Venizelos Intl Arpt',
-                    duration: '02:30',
-                    depDateTime: '18:20 Freitag, 29 Jun 2017',
-                    arrDateTime: '20:05 Freitag, 29 Jun 2017',
-                    airline: 'Ryanair',
-                    code: 'FR',
-                    waitTime: ''
-                },
+            ],
+            inbound: [{
+                fromCity: 'London',
+                toCity: 'Athens',
+                fromAirport: 'LHR, London Intl Arpt',
+                toAirport: 'ATH, Eleftherios Venizelos Intl Arpt',
+                duration: '02:30',
+                depDateTime: '18:20 Freitag, 29 Jun 2017',
+                arrDateTime: '20:05 Freitag, 29 Jun 2017',
+                airline: 'Ryanair',
+                code: 'FR',
+                waitTime: ''
+            },
                 {
                     fromCity: 'Athens',
                     toCity: 'Rhodes',
@@ -200,22 +248,21 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        increment (state) {
+        increment(state) {
             state.bags++
         },
         addPassenger(state) {
-          let pap = {
-              id : 4,
-              type: 'INF'
-          }
-          state.passengers.push(pap)
+            let pap = {
+                id: 4,
+                type: 'INF'
+            }
+            state.passengers.push(pap)
         }
     }
 })
 
 
 sync(store, router)
-
 
 
 /* eslint-disable no-new */
