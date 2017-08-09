@@ -168,6 +168,8 @@ const store = new Vuex.Store({
                 ]
             }
         ],
+        outboundCarriers:['FR','A3','BA'],
+        inboundCarriers:['FR','A3'],
         itinerary: {
             info: {
                 departure: {

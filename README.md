@@ -8,4 +8,4 @@ inspired from kiwi.com
 This version contains
 
 Vuex
-and better layout
+and better CSS layout
