@@ -13,23 +13,93 @@
                         <div class="row">
 
 
-                            <div class="col-md-12">
-                                {{startAirport}}-{{endAirport}}
+                            <div class="col-md-6">
 
-                                <div v-for="airline of bagRules">
-                                    {{airline.carrier}}
-                                    <div v-for="seg of outboundSegments">
-                                        <div v-if="seg.code === airline.carrier">
 
-                                            <div v-for="bag of airline.bags">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{{startAirport}}-{{endAirport}}</div>
 
-                                                <button type="button" class="btn btn-xs btn-primary">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
+                                    <div class="panel-body">
 
-                                                {{bag.title}} {{bag.price}}
+
+                                        <div v-for="airline of bagRules">
+
+
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">{{airline.carrier}}</div>
+
+                                                <div class="panel-body">
+
+
+                                                    <div v-for="carrier of outboundCarriers">
+                                                        <div v-if="carrier === airline.carrier">
+
+                                                            <div v-for="bag of airline.bags">
+
+                                                                <button type="button" class="btn btn-xs btn-primary">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+
+                                                                {{bag.title}} {{bag.price}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="col-md-6">
+
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{{endAirport}}-{{startAirport}}</div>
+
+                                    <div class="panel-body">
+
+
+                                        <div v-for="airline of bagRules">
+
+
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">{{airline.carrier}}</div>
+
+                                                <div class="panel-body">
+
+
+                                                    <div v-for="carrier of inboundCarriers">
+
+                                                        <div v-if="airline.bags.length  >0 ">
+
+                                                                <div v-if="carrier === airline.carrier">
+
+                                                            <div v-for="bag of airline.bags">
+
+                                                                <button type="button" class="btn btn-xs btn-primary">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+
+                                                                {{bag.title}} {{bag.price}}
+                                                            </div>
+                                                        </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
 
@@ -60,11 +130,14 @@
             endAirport() {
                 return this.$store.state.arrAirport
             },
-            outboundSegments() {
-                return this.$store.state.itinerary.outbound
-            },
             bagRules() {
                 return this.$store.state.bagAllowance
+            },
+            outboundCarriers() {
+                return this.$store.state.outboundCarriers
+            },
+            inboundCarriers() {
+                return this.$store.state.inboundCarriers
             }
 
 

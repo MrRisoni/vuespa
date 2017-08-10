@@ -28,12 +28,6 @@
 <style>
 
 
-    .panel-heading {
-        min-height: 28px;
-        max-height: 28px;
-        font-size: 12px;
-    }
-
 
 </style>
 
