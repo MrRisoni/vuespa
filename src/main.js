@@ -137,39 +137,156 @@ const store = new Vuex.Store({
                 options: [{
                     id: 1,
                     name: 'Basic',
-                    packages: []
+                    packages: [
+                        {
+                            title: 'Hand baggage',
+                            status: 'notincl'
+                        },
+                        {
+                            title: 'Checked baggage',
+                            status: 'notincl'
+                        },
+                        {
+                            title: 'Wifi',
+                            status: 'notincl'
+                        }
+                        ,
+                        {
+                            title: 'Priority Boarding',
+                            status: 'notincl'
+                        },
+                        {
+                            title: 'Lounge Access',
+                            status: 'notincl'
+                        },
+                        {
+                            title: 'Cancellation',
+                            status: 'notincl'
+                        } ,
+                        {
+                            title: 'Amendment',
+                            status: 'notincl'
+                        }]
                 },
                     {
                         id: 2,
                         name: 'Basic Plus',
-                        packages: [{
-                            title: 'Wifi',
-                            status : 'notincl'
-                        }]
+                        packages: [
+                            {
+                                title: 'Hand baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Checked baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Wifi',
+                                status: 'notinlc'
+                            },
+                            {
+                                title: 'Cancellation',
+                                status: 'fee'
+                            },
+                            {
+                                title: 'Priority Boarding',
+                                status: 'notinlc'
+                            },
+                            {
+                                title: 'Lounge Access',
+                                status: 'notinlc'
+                            },
+                            {
+                                title: 'Amendment',
+                                status: 'notinlc'
+                            }]
                     },
                     {
                         id: 3,
                         name: 'Economy Premium',
-                        packages: [{
-                            title: 'Wifi',
-                            status : 'fee'
-                        }]
+                        packages: [
+                            {
+                                title: 'Hand baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Checked baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Wifi',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Cancellation',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Priority Boarding',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Lounge Access',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Cancellation',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Amendment',
+                                status: 'free'
+                            }]
                     },
                     {
                         id: 4,
                         name: 'Economy Lux',
-                        packages: [{
-                            title: 'Wifi',
-                            status : 'free'
-                        },
-                            {   title: 'Cancellation',
-                                status : 'free'}]
+                        packages: [
+                            {
+                                title: 'Hand baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Checked baggage',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Wifi',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Cancellation',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Priority Boarding',
+                                status: 'free'
+                            },
+                            {
+                                title: 'Lounge Access',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Cancellation',
+                                status: 'free'
+                            }
+                            ,
+                            {
+                                title: 'Amendment',
+                                status: 'free'
+                            }]
                     }
                 ]
             }
         ],
-        outboundCarriers:['FR','A3','BA'],
-        inboundCarriers:['FR','A3'],
+        outboundCarriers: ['FR', 'A3', 'BA'],
+        inboundCarriers: ['FR', 'A3'],
+        carriers: ['FR', 'A3', 'BA'],
         itinerary: {
             info: {
                 departure: {
