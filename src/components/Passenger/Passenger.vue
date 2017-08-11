@@ -45,7 +45,7 @@
 <script>
 
     import Name from './Name.vue'
-    import Bags from './Bags.vue'
+    import Bags from './Bags/Bags.vue'
     import UpgradeFare from './UpgradeFare/UpgradeFare.vue'
     import Insurance from './Insurance.vue'
 
