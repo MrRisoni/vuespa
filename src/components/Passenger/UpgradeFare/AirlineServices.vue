@@ -18,7 +18,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <input type="radio" id="two" value="Two"
-                                       v-model="picked"> {{opt.name}}
+                                       > {{opt.name}}
 
                             </div>
 
