@@ -46,7 +46,7 @@
 
     import Name from './Name.vue'
     import Bags from './Bags.vue'
-    import UpgradeFare from './UpgradeFare.vue'
+    import UpgradeFare from './UpgradeFare/UpgradeFare.vue'
     import Insurance from './Insurance.vue'
 
 
