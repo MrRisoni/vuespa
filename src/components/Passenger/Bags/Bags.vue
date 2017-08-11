@@ -18,12 +18,20 @@
                             ></bagleg>
 
 
-
                             <bagleg :route="returnRoute"
                                     :legCarriers="inboundCarriers"
-                                ></bagleg>
+                            ></bagleg>
 
 
+                        </div>
+
+
+                        <div class="row">
+
+
+                            <purchasedleg :route="departRoute"></purchasedleg>
+
+                            <purchasedleg :route="returnRoute"></purchasedleg>
 
                         </div>
 
@@ -38,22 +46,23 @@
 <script>
 
     import BagLeg from './BagLeg.vue';
+    import Purchasedleg from './PurchasedLeg.vue';
+
 
     export default {
         components: {
-            'bagleg' : BagLeg,
+            'bagleg': BagLeg,
+            'purchasedleg': Purchasedleg
         },
         data() {
             return {}
         },
         computed: {
-            returnRoute()
-            {
-                return this.$store.state.arrAirport + '-' +  this.$store.state.depAirport
+            returnRoute() {
+                return this.$store.state.arrAirport + '-' + this.$store.state.depAirport
             },
-            departRoute()
-            {
-                return this.$store.state.depAirport + '-' +  this.$store.state.arrAirport
+            departRoute() {
+                return this.$store.state.depAirport + '-' + this.$store.state.arrAirport
             },
             bagRules() {
                 return this.$store.state.bagAllowance
