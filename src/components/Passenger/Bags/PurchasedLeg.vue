@@ -35,14 +35,14 @@
 
 <script>
     export default {
-        props: ['route'],
+        props: ['route', 'passengerid'],
         data() {
             return {}
         },
         computed :{
             boughtBagsDepart()
             {
-                return this.$store.state.passengers[0].bags[0].types;
+                return this.$store.state.passengers[this.passengerid-1].bags[0].types;
             }
         }
     }

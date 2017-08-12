@@ -11,21 +11,41 @@ const store = new Vuex.Store({
             bags: [
                 {
                     route: 'ATH-LHR',
-                    types : []
+                    types: []
                 },
                 {
                     route: 'LHR-ATH',
-                    types : []
+                    types: []
                 }
             ]
         },
             {
                 id: 2,
-                type: 'ADT'
+                type: 'ADT',
+                bags: [
+                    {
+                        route: 'ATH-LHR',
+                        types: []
+                    },
+                    {
+                        route: 'LHR-ATH',
+                        types: []
+                    }
+                ]
             },
             {
                 id: 3,
-                type: 'CNN'
+                type: 'CNN',
+                bags: [
+                    {
+                        route: 'ATH-LHR',
+                        types: []
+                    },
+                    {
+                        route: 'LHR-ATH',
+                        types: []
+                    }
+                ]
             }
         ],
         count: 0,
@@ -162,7 +182,7 @@ const store = new Vuex.Store({
                         {
                             title: 'Cancellation',
                             status: 'notincl'
-                        } ,
+                        },
                         {
                             title: 'Amendment',
                             status: 'notincl'
@@ -377,15 +397,17 @@ const store = new Vuex.Store({
             }
             state.passengers.push(pap)
         },
-        addBaggage(state)
-        {
+        addBaggage(state, passengerid) {
             let newbag = {
                 carrier: 'FR',
-                title : '119 × 119 × 81 cm, 23 kg'
+                title: '119 × 119 × 81 cm, 23 kg'
             }
 
+            console.log('store.js addBaggage');
+            console.log(passengerid);
+
             console.log(newbag)
-            state.passengers[0].bags[0].types.push(newbag);
+            state.passengers[passengerid-1].bags[0].types.push(newbag);
         }
     }
 })
