@@ -3,26 +3,18 @@
 
         <div class="col-md-6">
 
+            <div class="alert alert-success" role="alert">{{route}}</div>
 
-            <div class="panel panel-primary">
-                <div class="panel-heading">{{route}}</div>
+            <div v-for="airline of bagRules">
 
-                <div class="panel-body">
+                <div v-for="carrier of legCarriers">
+                    <div v-if="carrier === airline.carrier">
 
-
-                    <div v-for="airline of bagRules">
-
-                        <div v-for="carrier of legCarriers">
-                            <div v-if="carrier === airline.carrier">
-
-                                <bagcarrier :airline="airline"
-                                            :passengerid="passengerid"
-                                ></bagcarrier>
+                        <bagcarrier :airline="airline"
+                                    :passengerid="passengerid"
+                        ></bagcarrier>
 
 
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
@@ -42,7 +34,7 @@
         components: {
             'bagcarrier': BagCarrier
         },
-        props: ['route', 'legCarriers' ,'passengerid'],
+        props: ['route', 'legCarriers', 'passengerid'],
         data() {
             return {}
         },

@@ -13,7 +13,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
 
                                 {{bag.title}}  {{bag.carrier}}
 

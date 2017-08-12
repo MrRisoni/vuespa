@@ -1,49 +1,43 @@
 <template>
     <div class="bags">
 
-
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Bags</div>
-                    <div class="panel-body">
+                <div class="alert alert-success" role="alert">Bags</div>
+
+                <div v-if="showMe">
+
+                    <div class="row">
 
 
-                        <div v-if="showMe">
-
-                            <div class="row">
-
-
-                                <bagleg :route="departRoute"
-                                        :legCarriers="outboundCarriers"
-                                        :passengerid="passengerid"
-                                ></bagleg>
+                        <bagleg :route="departRoute"
+                                :legCarriers="outboundCarriers"
+                                :passengerid="passengerid"
+                        ></bagleg>
 
 
-                                <bagleg :route="returnRoute"
-                                        :legCarriers="inboundCarriers"
-                                        :passengerid="passengerid"
-                                ></bagleg>
+                        <bagleg :route="returnRoute"
+                                :legCarriers="inboundCarriers"
+                                :passengerid="passengerid"
+                        ></bagleg>
 
 
-                            </div>
-
-
-                            <div class="row">
-
-
-                                <purchasedleg :route="departRoute"
-                                              :passengerid="passengerid"></purchasedleg>
-
-                                <purchasedleg :route="returnRoute"
-                                              :passengerid="passengerid"></purchasedleg>
-
-                            </div>
-
-                        </div>
                     </div>
+
+                    <div class="row">
+
+
+                        <purchasedleg :route="departRoute"
+                                      :passengerid="passengerid"></purchasedleg>
+
+                        <purchasedleg :route="returnRoute"
+                                      :passengerid="passengerid"></purchasedleg>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
 
