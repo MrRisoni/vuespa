@@ -424,7 +424,19 @@ const store = new Vuex.Store({
         togglePassengerPanel(state,passengerid)
         {
             state.passengers[passengerid-1].showMyPanel = !state.passengers[passengerid-1].showMyPanel;
-        }
+        },
+        toggleBagPanel(state,passengerid)
+        {
+            state.passengers[passengerid-1].showBags = !state.passengers[passengerid-1].showBags;
+        },
+        toggleInsurancePanel(state,passengerid)
+        {
+            state.passengers[passengerid-1].showInsurance = !state.passengers[passengerid-1].showInsurance;
+        },
+        toggleFarePanel(state,passengerid)
+        {
+            state.passengers[passengerid-1].showUpgrade = !state.passengers[passengerid-1].showUpgrade;
+        },
     }
 })
 

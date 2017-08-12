@@ -68,7 +68,7 @@
         computed: {
             showMyPanel() {
                 return this.$store.state.passengers[this.id - 1].showMyPanel
-            },
+            }
 
         },
         methods: {
@@ -81,7 +81,7 @@
 
                 this.$store.commit('togglePassengerPanel', this.id);
             }
-        },
+        }
 
     }
 </script>

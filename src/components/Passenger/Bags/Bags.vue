@@ -4,7 +4,23 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="alert alert-success" role="alert">Bags</div>
+
+                <div class="alert alert-success" role="alert">
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            Bags
+                        </div>
+
+                        <div class="col-md-2 col-md-offset-5">
+                            <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
 
                 <div v-if="showMe">
 
@@ -78,8 +94,11 @@
             showMe() {
                 return this.$store.state.passengers[this.passengerid - 1].showBags
             }
-
-
+        },
+        methods: {
+            toggleMe() {
+                this.$store.commit('toggleBagPanel', this.passengerid);
+            }
         }
     }
 </script>
