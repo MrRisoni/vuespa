@@ -24,11 +24,11 @@
 
                         <name></name>
 
-                        <upgradefare></upgradefare>
+                        <upgradefare :passengerid="id"></upgradefare>
 
                         <bags :passengerid="id"></bags>
 
-                        <insurance></insurance>
+                        <insurance :passengerid="id"></insurance>
                         Bags: {{bags}}
 
                         <button class="btn btn-primary btn-success"

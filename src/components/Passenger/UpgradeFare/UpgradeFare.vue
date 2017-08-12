@@ -9,32 +9,34 @@
                     <div class="panel-heading"> Upgrade your Seat!</div>
                     <div class="panel-body">
 
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div v-if="showMe">
+
+                            <div class="row">
+                                <div class="col-md-12">
 
 
-                                <div v-for="carrier of carriers">
+                                    <div v-for="carrier of carriers">
 
-                                    <div v-for="airline of upgradeOptions">
-                                        <div v-if="airline.carrier == carrier ">
-                                            <div v-if="airline.options.length  >0 ">
+                                        <div v-for="airline of upgradeOptions">
+                                            <div v-if="airline.carrier == carrier ">
+                                                <div v-if="airline.options.length  >0 ">
 
-                                                <airline-services :airline="carrier"
-                                                                  :options="airline.options"
-                                                            ></airline-services>
+                                                    <airline-services :airline="carrier"
+                                                                      :options="airline.options"
+                                                    ></airline-services>
 
+                                                </div>
                                             </div>
                                         </div>
+
+
                                     </div>
-
-
                                 </div>
+
+
                             </div>
 
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -50,8 +52,9 @@
 
 
     export default {
+        props: ['passengerid'],
         components: {
-            'airlineServices' : AirlineServices
+            'airlineServices': AirlineServices
         },
         data() {
             return {}
@@ -68,6 +71,9 @@
             },
             carriers() {
                 return this.$store.state.carriers
+            },
+            showMe() {
+                return this.$store.state.passengers[this.passengerid - 1].showUpgrade
             }
         }
 

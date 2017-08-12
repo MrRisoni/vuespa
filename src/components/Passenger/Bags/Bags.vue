@@ -10,35 +10,38 @@
                     <div class="panel-body">
 
 
-                        <div class="row">
+                        <div v-if="showMe">
+
+                            <div class="row">
 
 
-                            <bagleg :route="departRoute"
-                                    :legCarriers="outboundCarriers"
-                                    :passengerid="passengerid"
-                            ></bagleg>
+                                <bagleg :route="departRoute"
+                                        :legCarriers="outboundCarriers"
+                                        :passengerid="passengerid"
+                                ></bagleg>
 
 
-                            <bagleg :route="returnRoute"
-                                    :legCarriers="inboundCarriers"
-                                    :passengerid="passengerid"
-                            ></bagleg>
+                                <bagleg :route="returnRoute"
+                                        :legCarriers="inboundCarriers"
+                                        :passengerid="passengerid"
+                                ></bagleg>
 
+
+                            </div>
+
+
+                            <div class="row">
+
+
+                                <purchasedleg :route="departRoute"
+                                              :passengerid="passengerid"></purchasedleg>
+
+                                <purchasedleg :route="returnRoute"
+                                              :passengerid="passengerid"></purchasedleg>
+
+                            </div>
 
                         </div>
-
-
-                        <div class="row">
-
-
-                            <purchasedleg :route="departRoute"
-                                          :passengerid="passengerid"></purchasedleg>
-
-                            <purchasedleg :route="returnRoute"
-                                          :passengerid="passengerid"></purchasedleg>
-
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -54,7 +57,7 @@
 
 
     export default {
-        props:['passengerid'],
+        props: ['passengerid'],
         components: {
             'bagleg': BagLeg,
             'purchasedleg': Purchasedleg
@@ -77,10 +80,14 @@
             },
             inboundCarriers() {
                 return this.$store.state.inboundCarriers
+            },
+            showMe() {
+                return this.$store.state.passengers[this.passengerid - 1].showBags
             }
 
 
         }
     }
 </script>
+
 

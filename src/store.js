@@ -8,6 +8,9 @@ const store = new Vuex.Store({
         passengers: [{
             id: 1,
             type: 'ADT',
+            showBags: true,
+            showInsurance: false,
+            showUpgrade: true,
             bags: [
                 {
                     route: 'ATH-LHR',
@@ -22,6 +25,9 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 type: 'ADT',
+                showBags: false,
+                showInsurance: false,
+                showUpgrade: false,
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -36,6 +42,9 @@ const store = new Vuex.Store({
             {
                 id: 3,
                 type: 'CNN',
+                showBags: false,
+                showInsurance: false,
+                showUpgrade: true,
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -407,7 +416,7 @@ const store = new Vuex.Store({
             console.log(passengerid);
 
             console.log(newbag)
-            state.passengers[passengerid-1].bags[0].types.push(newbag);
+            state.passengers[passengerid - 1].bags[0].types.push(newbag);
         }
     }
 })
