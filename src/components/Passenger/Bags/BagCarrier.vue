@@ -33,8 +33,9 @@
             }
         },
         methods: {
-            clickAddLuggage()
+            clickAddLuggage(passengerid)
             {
+                console.log('Bag Carrier Compo ' + this.passengerid);
                 this.$store.commit('addBaggage');
             }
         }
