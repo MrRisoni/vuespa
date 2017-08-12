@@ -14,27 +14,31 @@
                             </div>
 
 
-                            <div class="col-md-2 col-md-offset-5">
-                                <button class="btn btn-xs btn-success"> this.state.buttonName </button>
+                            <div class="col-md-2 col-md-offset-4">
+                                <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="panel-body">
 
-                        <name></name>
+                        <div v-if="showMyPanel">
 
-                        <upgradefare :passengerid="id"></upgradefare>
+                            <name></name>
 
-                        <bags :passengerid="id"></bags>
+                            <upgradefare :passengerid="id"></upgradefare>
 
-                        <insurance :passengerid="id"></insurance>
-                        Bags: {{bags}}
+                            <bags :passengerid="id"></bags>
 
-                        <button class="btn btn-primary btn-success"
-                                @click="increment"
-                        >Go</button>
+                            <insurance :passengerid="id"></insurance>
+
+                            <button class="btn btn-primary btn-success"
+                                    @click="increment"
+                            >Add Passenger
+                            </button>
+                        </div>
                     </div>
+
 
                 </div>
             </div>
@@ -51,24 +55,31 @@
 
 
     export default {
-        props:['id'],
+        props: ['id'],
         components: {
             'name': Name,
-            'bags' : Bags,
-            'upgradefare' : UpgradeFare,
-            'insurance' : Insurance
+            'bags': Bags,
+            'upgradefare': UpgradeFare,
+            'insurance': Insurance
         },
         data() {
             return {}
         },
         computed: {
-            bags() {
-                return this.$store.state.bags
-            }
+            showMyPanel() {
+                return this.$store.state.passengers[this.id - 1].showMyPanel
+            },
+
         },
-        methods : {
+        methods: {
             increment() {
                 this.$store.commit('addPassenger');
+            },
+            toggleMe() {
+                console.log('toggle me');
+                console.log(this.id);
+
+                this.$store.commit('togglePassengerPanel', this.id);
             }
         },
 

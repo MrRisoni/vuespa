@@ -30,11 +30,10 @@
     import BagCarrier from './BagCarrier.vue';
 
     export default {
-        props: ['passengerid'],
+        props: ['route', 'legCarriers', 'passengerid'],
         components: {
             'bagcarrier': BagCarrier
         },
-        props: ['route', 'legCarriers', 'passengerid'],
         data() {
             return {}
         },

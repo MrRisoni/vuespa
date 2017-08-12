@@ -11,6 +11,7 @@ const store = new Vuex.Store({
             showBags: true,
             showInsurance: true,
             showUpgrade: true,
+            showMyPanel : true,
             bags: [
                 {
                     route: 'ATH-LHR',
@@ -28,6 +29,7 @@ const store = new Vuex.Store({
                 showBags: false,
                 showInsurance: false,
                 showUpgrade: false,
+                showMyPanel : true,
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -45,6 +47,7 @@ const store = new Vuex.Store({
                 showBags: false,
                 showInsurance: false,
                 showUpgrade: true,
+                showMyPanel : true,
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -417,6 +420,10 @@ const store = new Vuex.Store({
 
             console.log(newbag)
             state.passengers[passengerid - 1].bags[0].types.push(newbag);
+        },
+        togglePassengerPanel(state,passengerid)
+        {
+            state.passengers[passengerid-1].showMyPanel = !state.passengers[passengerid-1].showMyPanel;
         }
     }
 })
