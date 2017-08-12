@@ -1,55 +1,49 @@
 <template>
     <div class="upgradefare">
 
-
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading"> Upgrade your Seat!</div>
-                    <div class="panel-body">
+                <div class="alert alert-success" role="alert">Upgrade your seat!</div>
 
-                        <div v-if="showMe">
+                <div v-if="showMe">
 
-                            <div class="row">
-                                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
 
 
-                                    <div v-for="carrier of carriers">
+                            <div v-for="carrier of carriers">
 
-                                        <div v-for="airline of upgradeOptions">
-                                            <div v-if="airline.carrier == carrier ">
-                                                <div v-if="airline.options.length  >0 ">
+                                <div v-for="airline of upgradeOptions">
+                                    <div v-if="airline.carrier == carrier ">
+                                        <div v-if="airline.options.length  >0 ">
 
-                                                    <airline-services :airline="carrier"
-                                                                      :options="airline.options"
-                                                    ></airline-services>
+                                            <airline-services :airline="carrier"
+                                                              :options="airline.options"
+                                            ></airline-services>
 
-                                                </div>
-                                            </div>
                                         </div>
-
-
                                     </div>
                                 </div>
 
 
                             </div>
-
                         </div>
+
+
                     </div>
+
                 </div>
+
             </div>
         </div>
 
     </div>
 </template>
 
-
 <script>
 
     import AirlineServices from './AirlineServices.vue'
-
 
     export default {
         props: ['passengerid'],

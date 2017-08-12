@@ -9,7 +9,7 @@ const store = new Vuex.Store({
             id: 1,
             type: 'ADT',
             showBags: true,
-            showInsurance: false,
+            showInsurance: true,
             showUpgrade: true,
             bags: [
                 {
