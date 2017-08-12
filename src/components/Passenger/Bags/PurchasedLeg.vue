@@ -9,6 +9,22 @@
 
                 <div class="panel-body">
 
+                    <div v-for="bag in boughtBagsDepart">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                {{bag.title}}  {{bag.carrier}}
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
 
                 </div>
             </div>
@@ -22,6 +38,12 @@
         props: ['route'],
         data() {
             return {}
+        },
+        computed :{
+            boughtBagsDepart()
+            {
+                return this.$store.state.passengers[0].bags[0].types;
+            }
         }
     }
 </script>

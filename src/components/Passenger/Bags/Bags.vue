@@ -15,11 +15,13 @@
 
                             <bagleg :route="departRoute"
                                     :legCarriers="outboundCarriers"
+                                    :passengerid="passengerid"
                             ></bagleg>
 
 
                             <bagleg :route="returnRoute"
                                     :legCarriers="inboundCarriers"
+                                    :passengerid="passengerid"
                             ></bagleg>
 
 
@@ -29,9 +31,11 @@
                         <div class="row">
 
 
-                            <purchasedleg :route="departRoute"></purchasedleg>
+                            <purchasedleg :route="departRoute"
+                                          :passengerid="passengerid"></purchasedleg>
 
-                            <purchasedleg :route="returnRoute"></purchasedleg>
+                            <purchasedleg :route="returnRoute"
+                                          :passengerid="passengerid"></purchasedleg>
 
                         </div>
 
@@ -50,6 +54,7 @@
 
 
     export default {
+        props:['passengerid'],
         components: {
             'bagleg': BagLeg,
             'purchasedleg': Purchasedleg

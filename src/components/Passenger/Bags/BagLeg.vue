@@ -15,7 +15,9 @@
                         <div v-for="carrier of legCarriers">
                             <div v-if="carrier === airline.carrier">
 
-                                <bagcarrier :airline="airline"></bagcarrier>
+                                <bagcarrier :airline="airline"
+                                            :passengerid="passengerid"
+                                ></bagcarrier>
 
 
                             </div>
@@ -36,10 +38,11 @@
     import BagCarrier from './BagCarrier.vue';
 
     export default {
+        props: ['passengerid'],
         components: {
             'bagcarrier': BagCarrier
         },
-        props: ['route', 'legCarriers'],
+        props: ['route', 'legCarriers' ,'passengerid'],
         data() {
             return {}
         },

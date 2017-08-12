@@ -9,7 +9,7 @@
 
                 <div v-for="bag of airline.bags">
 
-                    <button type="button" class="btn btn-xs btn-primary">
+                    <button type="button" class="btn btn-xs btn-primary" @click="clickAddLuggage">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
 
@@ -26,10 +26,16 @@
 
 <script>
     export default {
-        props: ['airline'],
+        props: ['airline' ,'passengerid'],
         data() {
             return {
 
+            }
+        },
+        methods: {
+            clickAddLuggage()
+            {
+                this.$store.commit('addBaggage');
             }
         }
     }

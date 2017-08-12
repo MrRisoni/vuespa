@@ -26,7 +26,7 @@
 
                         <upgradefare></upgradefare>
 
-                        <bags></bags>
+                        <bags :passengerid="id"></bags>
 
                         <insurance></insurance>
                         Bags: {{bags}}

@@ -7,7 +7,17 @@ const store = new Vuex.Store({
     state: {
         passengers: [{
             id: 1,
-            type: 'ADT'
+            type: 'ADT',
+            bags: [
+                {
+                    route: 'ATH-LHR',
+                    types : []
+                },
+                {
+                    route: 'LHR-ATH',
+                    types : []
+                }
+            ]
         },
             {
                 id: 2,
@@ -366,6 +376,16 @@ const store = new Vuex.Store({
                 type: 'INF'
             }
             state.passengers.push(pap)
+        },
+        addBaggage(state)
+        {
+            let newbag = {
+                carrier: 'FR',
+                title : '119 × 119 × 81 cm, 23 kg'
+            }
+
+            console.log(newbag)
+            state.passengers[0].bags[0].types.push(newbag);
         }
     }
 })
