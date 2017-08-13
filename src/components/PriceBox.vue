@@ -10,7 +10,7 @@
 
 
                         <div v-for="pax in appState.paxTypes">
-                            {{pax.count}} Adults x {{pax.netPrice}}    <p>{{ $t("hello") }}</p>
+                            {{pax.count}} Adults x {{pax.netPrice}}
                         </div>
 
 
