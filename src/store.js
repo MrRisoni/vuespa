@@ -5,6 +5,20 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
+        paxTypes: [
+            {
+                type : 'ADT',
+                count :2,
+                netPrice: 356,
+
+            },
+            {
+                type : 'CNN',
+                count :1,
+                netPrice: 275
+
+            },
+        ],
         passengers: [{
             id: 1,
             type: 'ADT',

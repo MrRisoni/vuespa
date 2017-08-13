@@ -9,7 +9,7 @@
                 <div class="row">
 
                     <div class="col-md-2">
-                        <select class="form-control" id={this.props.selectID}  onChange={this.changePrefix}>
+                        <select class="form-control" >
                             <option></option>
                             <option value="MR">Male</option>
                             <option value="MS">Female</option>
@@ -18,13 +18,13 @@
 
 
                     <div class="col-md-5">
-                        <input type="text" value={this.state.surname}  placeholder="Surname"
-                               onChange={this.changeSurName} class="form-control"/>
+                        <input type="text"   placeholder="Surname"
+                               class="form-control"/>
                     </div>
 
 
                     <div class="col-md-5">
-                        <input type="text" value={this.state.name}  placeholder="Name" onChange={this.changeName}
+                        <input type="text"   placeholder="Name"
                                class="form-control"/>
                     </div>
 

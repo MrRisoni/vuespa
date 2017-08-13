@@ -9,8 +9,9 @@
                     <div class="panel-body">
 
 
-                        Bags
-
+                        <div v-for="pax in appState.paxTypes">
+                            {{pax.count}} Adults x {{pax.netPrice}}
+                        </div>
 
 
                     </div>
@@ -29,6 +30,7 @@
             appState() {
                 return this.$store.state
             }
+
         }
     }
 </script>

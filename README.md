@@ -7,7 +7,7 @@ inspired from kiwi.com
 
 This version contains
 
-Vuex
+Vuex (state management)
 and better CSS layout
 
 
