@@ -10,7 +10,7 @@
 
 
                         <div v-for="pax in appState.paxTypes">
-                            {{pax.count}} Adults x {{pax.netPrice}}
+                            {{pax.count}} {{pax.name}} x {{pax.netPrice}}
                         </div>
 
 
@@ -20,6 +20,20 @@
         </div>
     </div>
 </template>
+
+
+<style>
+
+    .pricebox {
+        position: fixed;
+        width:auto;
+        min-width: 30%;
+        max-width: 30%;
+
+    }
+
+</style>
+
 
 <script>
 

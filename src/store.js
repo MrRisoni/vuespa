@@ -8,12 +8,14 @@ const store = new Vuex.Store({
         paxTypes: [
             {
                 type : 'ADT',
+                name: 'Adults',
                 count :2,
                 netPrice: 356,
 
             },
             {
                 type : 'CNN',
+                name: 'Children',
                 count :1,
                 netPrice: 275
 
@@ -422,6 +424,8 @@ const store = new Vuex.Store({
                 type: 'INF'
             }
             state.passengers.push(pap)
+
+            state.paxTypes[0].count++;
         },
         addBaggage(state, passengerid) {
             let newbag = {
