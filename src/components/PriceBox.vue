@@ -9,6 +9,10 @@
                     <div class="panel-body">
 
 
+                        Bags
+
+
+
                     </div>
                 </div>
             </div>
@@ -18,5 +22,13 @@
 
 <script>
 
-</script>
 
+    export default {
+
+        computed: {
+            appState() {
+                return this.$store.state
+            }
+        }
+    }
+</script>
