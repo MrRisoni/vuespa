@@ -6,8 +6,6 @@ import router from './router'
 import Vuex from 'vuex'
 import {sync} from 'vuex-router-sync'
 
-
-
 Vue.config.productionTip = false
 
 Vue.use(Vuex)

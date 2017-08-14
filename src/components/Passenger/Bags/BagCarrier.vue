@@ -9,8 +9,9 @@
 
                 <div v-for="bag of airline.bags">
 
-                    <button type="button" class="btn btn-xs btn-primary" @click="clickAddLuggage">
-                        <span class="glyphicon glyphicon-plus"></span>
+
+                    <button type="button" class="btn mybtn btn-primary" @click="clickAddLuggage">
+                        +
                     </button>
 
                     {{bag.title}} {{bag.price}}
@@ -25,6 +26,13 @@
 </template>
 
 <style>
+
+
+    .mybtn {
+        padding: 3px 5px;
+        font-size: 10px;
+        border-radius: 2px;
+    }
 
     .bagcarrier {
         margin-bottom: 4%;

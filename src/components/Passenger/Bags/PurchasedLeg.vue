@@ -15,7 +15,9 @@
 
                             <div class="col-md-10">
 
-                                {{bag.title}}  {{bag.carrier}}
+                                <button type="button" class="btn mybtn btn-danger" @click="">
+                                    -
+                                </button> {{bag.title}}  {{bag.carrier}}
 
                             </div>
 
