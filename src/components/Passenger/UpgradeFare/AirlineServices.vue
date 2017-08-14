@@ -3,7 +3,7 @@
 
 
         <div class="card card-primary">
-            <div class="card-heading">{{airline}}</div>
+            <div class="card-header">{{airline}}</div>
 
             <div class="card-body">
 
@@ -16,7 +16,7 @@
                     <div class="col-md-5">
 
                         <div class="card card-primary">
-                            <div class="card-heading">
+                            <div class="card-header">
                                 <input type="radio" id="two" value="Two"
                                        > {{opt.name}}
 

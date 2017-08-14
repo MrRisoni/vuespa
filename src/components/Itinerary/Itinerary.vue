@@ -5,7 +5,7 @@
 
 
         <div class="card card-primary">
-            <div class="card-heading">
+            <div class="card-header">
                 <div class="row">
                     <div class="col-md-2">
                         Athens - London

@@ -1,11 +1,11 @@
 <template>
-    <div class="purchasedLeg">
+    <div class="col-md-6">
+        <div class="purchasedLeg">
 
-        <div class="col-md-6">
 
             <!-- shows what you have purchased -->
-            <div class="card card-info">
-                <div class="card-heading">{{route}}</div>
+            <div class="card">
+                <div class="card-header bg-info">{{route}}</div>
 
                 <div class="card-body">
 
@@ -17,21 +17,26 @@
 
                                 {{bag.title}}  {{bag.carrier}}
 
-
                             </div>
-
 
                         </div>
 
-
                     </div>
-
                 </div>
+
             </div>
         </div>
 
     </div>
 </template>
+
+<style>
+
+    .purchasedLeg {
+        margin-top: 4%;
+    }
+
+</style>
 
 <script>
     export default {
@@ -39,10 +44,9 @@
         data() {
             return {}
         },
-        computed :{
-            boughtBagsDepart()
-            {
-                return this.$store.state.passengers[this.passengerid-1].bags[0].types;
+        computed: {
+            boughtBagsDepart() {
+                return this.$store.state.passengers[this.passengerid - 1].bags[0].types;
             }
         }
     }

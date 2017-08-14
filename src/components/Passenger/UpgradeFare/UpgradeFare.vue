@@ -1,8 +1,9 @@
 <template>
-    <div class="upgradefare">
 
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="upgradefare">
 
                 <div class="alert alert-success" role="alert">
 
@@ -58,6 +59,17 @@
 
     </div>
 </template>
+
+
+<style>
+
+
+    .upgradefare {
+        margin-top: 5%;
+    }
+
+
+</style>
 
 <script>
 

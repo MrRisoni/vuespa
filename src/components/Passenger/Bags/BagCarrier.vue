@@ -1,8 +1,8 @@
 <template>
-    <div class="bookapp">
+    <div class="bagcarrier">
 
         <div class="card card-primary">
-            <div class="card-heading">{{airline.carrier}}</div>
+            <div class="card-header">{{airline.carrier}}</div>
 
             <div class="card-body">
 
@@ -23,6 +23,14 @@
 
     </div>
 </template>
+
+<style>
+
+    .bagcarrier {
+        margin-bottom: 4%;
+    }
+
+</style>
 
 <script>
     export default {

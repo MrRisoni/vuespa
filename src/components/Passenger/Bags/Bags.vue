@@ -1,9 +1,8 @@
 <template>
-    <div class="bags">
+    <div class="row">
+        <div class="col-md-12">
 
-        <div class="row">
-            <div class="col-md-12">
-
+            <div class="bags">
 
                 <div class="alert alert-success" role="alert">
 
@@ -13,9 +12,7 @@
                             Bags
                         </div>
 
-
                         <div class="col-md-5"></div>
-
 
                         <div class="col-xs-2">
                             <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
@@ -24,7 +21,6 @@
                     </div>
 
                 </div>
-
 
                 <div v-if="showMe">
 
@@ -47,12 +43,13 @@
 
                     <div class="row">
 
-
                         <purchasedleg :route="departRoute"
                                       :passengerid="passengerid"></purchasedleg>
 
+
                         <purchasedleg :route="returnRoute"
                                       :passengerid="passengerid"></purchasedleg>
+
 
                     </div>
 
@@ -63,6 +60,14 @@
 
     </div>
 </template>
+
+<style>
+
+    .bags {
+        margin-top: 5%;
+    }
+
+</style>
 
 <script>
 

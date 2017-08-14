@@ -1,8 +1,9 @@
 <template>
-    <div class="insurance">
 
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="insurance">
 
                 <div class="alert alert-success" role="alert">
 
@@ -12,14 +13,11 @@
                             Select an Insurance
                         </div>
 
-
                         <div class="col-md-5"></div>
-
 
                         <div class="col-md-2">
                             <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                         </div>
-
 
                     </div>
 
@@ -31,7 +29,7 @@
 
                         <div class="col-md-3">
                             <div class="card card-default">
-                                <div class="card-heading">card heading
+                                <div class="card-header">card heading
                                     without title
                                 </div>
                                 <div class="card-body">
@@ -44,7 +42,7 @@
 
                         <div class="col-md-3">
                             <div class="card card-default">
-                                <div class="card-heading">card heading
+                                <div class="card-header">card heading
                                     without title
                                 </div>
                                 <div class="card-body">
@@ -57,7 +55,7 @@
 
                         <div class="col-md-3">
                             <div class="card card-default">
-                                <div class="card-heading">card heading
+                                <div class="card-header">card heading
                                     without title
                                 </div>
                                 <div class="card-body">
@@ -70,7 +68,7 @@
 
                         <div class="col-md-3">
                             <div class="card card-default">
-                                <div class="card-heading">card heading
+                                <div class="card-header">card heading
                                     without title
                                 </div>
                                 <div class="card-body">
@@ -91,6 +89,16 @@
 
     </div>
 </template>
+
+<style>
+
+
+    .insurance {
+        margin-top: 5%;
+    }
+
+
+</style>
 
 <script>
     export default {
