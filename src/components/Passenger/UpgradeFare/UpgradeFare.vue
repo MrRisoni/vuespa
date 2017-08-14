@@ -1,19 +1,22 @@
 <template>
-    <div class="upgradefare">
 
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="upgradefare">
 
                 <div class="alert alert-success" role="alert">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             Upgrade your seat!
                         </div>
 
-                        <div class="col-md-2 col-md-offset-5">
-                            <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                        <div class="col-md-5"></div> <!-- offset does not work -->
+
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                         </div>
 
 
@@ -21,14 +24,11 @@
 
                 </div>
 
-
                 <div v-if="showMe">
 
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div v-for="carrier of carriers">
 
 
-                            <div v-for="carrier of carriers">
 
                                 <div v-for="airline of upgradeOptions">
                                     <div v-if="airline.carrier == carrier ">
@@ -39,13 +39,10 @@
                                             ></airline-services>
 
                                         </div>
-                                    </div>
-                                </div>
 
 
                             </div>
                         </div>
-
 
                     </div>
 
@@ -56,6 +53,17 @@
 
     </div>
 </template>
+
+
+<style>
+
+
+    .upgradefare {
+        margin-top: 5%;
+    }
+
+
+</style>
 
 <script>
 

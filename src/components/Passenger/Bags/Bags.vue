@@ -1,26 +1,26 @@
 <template>
-    <div class="bags">
+    <div class="row">
+        <div class="col-md-12">
 
-        <div class="row">
-            <div class="col-md-12">
-
+            <div class="bags">
 
                 <div class="alert alert-success" role="alert">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             Bags
                         </div>
 
-                        <div class="col-md-2 col-md-offset-5">
-                            <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                        <div class="col-md-5"></div>
+
+                        <div class="col-xs-2">
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                         </div>
 
                     </div>
 
                 </div>
-
 
                 <div v-if="showMe">
 
@@ -43,12 +43,13 @@
 
                     <div class="row">
 
-
                         <purchasedleg :route="departRoute"
                                       :passengerid="passengerid"></purchasedleg>
 
+
                         <purchasedleg :route="returnRoute"
                                       :passengerid="passengerid"></purchasedleg>
+
 
                     </div>
 
@@ -59,6 +60,14 @@
 
     </div>
 </template>
+
+<style>
+
+    .bags {
+        margin-top: 5%;
+    }
+
+</style>
 
 <script>
 

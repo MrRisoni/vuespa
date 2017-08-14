@@ -4,8 +4,8 @@
         <h1></h1>
 
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+        <div class="card card-primary">
+            <div class="card-header">
                 <div class="row">
                     <div class="col-md-2">
                         Athens - London
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
 
                 <div class="row">
                     <div class="col-md-3">

@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-success">
-                    <div class="panel-heading">Price Analysis</div>
-                    <div class="panel-body">
+                <div class="card bg-info">
+                    <div class="card-header"><b>Price Analysis </b></div>
+                    <div class="card-body text-white">
 
 
                         <div v-for="pax in appState.paxTypes">
@@ -26,7 +26,7 @@
 
     .pricebox {
         position: fixed;
-        width:auto;
+        width: auto;
         min-width: 30%;
         max-width: 30%;
 

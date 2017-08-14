@@ -1,7 +1,8 @@
 <template>
-    <div class="bagleg">
 
-        <div class="col-md-6">
+    <div class="col-md-6">
+
+        <div class="bagleg">
 
             <div class="alert alert-success" role="alert">{{route}}</div>
 
@@ -13,7 +14,6 @@
                         <bagcarrier :airline="airline"
                                     :passengerid="passengerid"
                         ></bagcarrier>
-
 
                     </div>
 

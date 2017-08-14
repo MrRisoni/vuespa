@@ -1,26 +1,30 @@
 <template>
     <div class="passenger">
 
-
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
+
+
+                <div class="card bg-light">
+                    <div class="card-header">
 
                         <div class="row">
+
                             <div class="col-md-5">
                                 Passenger # {{id}}
                             </div>
 
+                            <div class="col-md-5"></div> <!-- offset does not work -->
 
-                            <div class="col-md-2 col-md-offset-4">
-                                <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+
+                            <div class="ol-md-2">
+                                <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
 
                         <div v-if="showMyPanel">
 
@@ -31,6 +35,9 @@
                             <bags :passengerid="id"></bags>
 
                             <insurance :passengerid="id"></insurance>
+
+
+                            <br>
 
                             <button class="btn btn-primary btn-success"
                                     @click="increment"
@@ -43,8 +50,19 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 </template>
+
+<style>
+
+    .passenger {
+        margin-top: 4%;
+    }
+
+</style>
 
 <script>
 

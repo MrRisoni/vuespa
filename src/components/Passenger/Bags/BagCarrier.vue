@@ -1,16 +1,17 @@
 <template>
-    <div class="bookapp">
+    <div class="bagcarrier">
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">{{airline.carrier}}</div>
+        <div class="card card-primary">
+            <div class="card-header">{{airline.carrier}}</div>
 
-            <div class="panel-body">
+            <div class="card-body">
 
 
                 <div v-for="bag of airline.bags">
 
-                    <button type="button" class="btn btn-xs btn-primary" @click="clickAddLuggage">
-                        <span class="glyphicon glyphicon-plus"></span>
+
+                    <button type="button" class="btn mybtn btn-primary" @click="clickAddLuggage">
+                        +
                     </button>
 
                     {{bag.title}} {{bag.price}}
@@ -23,6 +24,21 @@
 
     </div>
 </template>
+
+<style>
+
+
+    .mybtn {
+        padding: 3px 5px;
+        font-size: 10px;
+        border-radius: 2px;
+    }
+
+    .bagcarrier {
+        margin-bottom: 4%;
+    }
+
+</style>
 
 <script>
     export default {
