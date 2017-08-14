@@ -8,10 +8,12 @@ inspired from kiwi.com
 This version contains
 
 -Vuex (state management)
+
 -better CSS layout 
+
 -Bootstrap 4
 
 
 
 
-https://vast-gorge-45385.herokuapp.com/#/book  (WIP)
+https://vast-gorge-45385.herokuapp.com  (WIP)
