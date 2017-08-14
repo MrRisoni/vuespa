@@ -19,7 +19,7 @@
 
 
                             <div class="ol-md-2">
-                                <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                                <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                             </div>
                         </div>
                     </div>

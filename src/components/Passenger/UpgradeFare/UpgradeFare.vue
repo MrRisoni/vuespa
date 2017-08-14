@@ -12,10 +12,10 @@
                             Upgrade your seat!
                         </div>
 
-                        <div class="col-md-4"></div> <!-- offset does not work -->
+                        <div class="col-md-5"></div> <!-- offset does not work -->
 
-                        <div class="col-md-3">
-                            <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                         </div>
 
 

@@ -17,8 +17,8 @@
                         <div class="col-md-5"></div>
 
 
-                        <div class="col-md-2">
-                            <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
+                        <div class="col-xs-2">
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
                         </div>
 
                     </div>
