@@ -5,7 +5,7 @@
             <div class="col-md-12">
 
                 <div class="card bg-info">
-                    <div class="card-header"> <b>Price Analysis </b></div>
+                    <div class="card-header"><b>Price Analysis </b></div>
                     <div class="card-body text-white">
 
 
@@ -26,7 +26,7 @@
 
     .pricebox {
         position: fixed;
-        width:auto;
+        width: auto;
         min-width: 30%;
         max-width: 30%;
 

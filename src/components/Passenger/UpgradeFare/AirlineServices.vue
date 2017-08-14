@@ -8,33 +8,19 @@
 
 
                 <div class="card">
-                    <div class="card-header">{{airline}}</div>
+                    <div class="card-header bg-info ">{{airline}}</div>
 
                     <div class="card-body">
 
-                        <div class="row">
 
+                        <div v-for="opt of options">
+                            <div class="row">
 
-                            <div class="col-md-6">
-
-                                <div class="card">
-                                    <div class="card-header">Flex</div>
-
-                                    <div class="card-body"> Body FLex </div>
-                                </div>
-
+                                <fare-class :FareClassName="opt.name"
+                                :packages="opt.packages"></fare-class>
 
                             </div>
 
-                            <div class="col-md-6">
-                                
-                                <div class="card">
-                                    <div class="card-header">Flex</div>
-
-                                    <div class="card-body"> Body FLex </div>
-                                </div>
-
-                            </div>
 
                         </div>
                     </div>
@@ -44,7 +30,7 @@
         </div>
 
 
-        </div>
+    </div>
 </template>
 
 
@@ -58,8 +44,15 @@
 
 
 <script>
+
+    import FareClass from './FareClass.vue'
+
+
     export default {
         props: ['airline', 'options'],
+        components: {
+            'FareClass': FareClass
+        },
         data() {
             return {}
         }
