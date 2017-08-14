@@ -1,20 +1,24 @@
 <template>
     <div class="passenger">
 
-
         <div class="row">
             <div class="col-md-12">
 
-                <div class="card card-primary">
-                    <div class="card-heading">
+
+
+                <div class="card bg-light">
+                    <div class="card-header">
 
                         <div class="row">
+
                             <div class="col-md-5">
                                 Passenger # {{id}}
                             </div>
 
+                            <div class="col-md-5"></div> <!-- offset does not work -->
 
-                            <div class="col-md-2 col-md-offset-4">
+
+                            <div class="ol-md-2">
                                 <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
                             </div>
                         </div>
@@ -22,7 +26,7 @@
 
                     <div class="card-body">
 
-                        <div v-if="showMycard">
+                        <div v-if="showMyPanel">
 
                             <name></name>
 
@@ -43,8 +47,19 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 </template>
+
+<style>
+
+    .passenger {
+        margin-top: 4%;
+    }
+
+</style>
 
 <script>
 
@@ -66,8 +81,8 @@
             return {}
         },
         computed: {
-            showMycard() {
-                return this.$store.state.passengers[this.id - 1].showMycard
+            showMyPanel() {
+                return this.$store.state.passengers[this.id - 1].showMyPanel
             }
 
         },
@@ -79,7 +94,7 @@
                 console.log('toggle me');
                 console.log(this.id);
 
-                this.$store.commit('togglePassengercard', this.id);
+                this.$store.commit('togglePassengerPanel', this.id);
             }
         }
 

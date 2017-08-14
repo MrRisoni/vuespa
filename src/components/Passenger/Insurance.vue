@@ -8,11 +8,15 @@
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             Select an Insurance
                         </div>
 
-                        <div class="col-md-2 col-md-offset-5">
+
+                        <div class="col-md-5"></div>
+
+
+                        <div class="col-md-2">
                             <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
                         </div>
 
@@ -102,7 +106,7 @@
         methods: {
 
             toggleMe() {
-                this.$store.commit('toggleInsurancecard', this.passengerid);
+                this.$store.commit('toggleInsurancePanel', this.passengerid);
             }
         }
 

@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="card bg-primary">
-                    <div class="card-header">Contact Details</div>
+                <div class="card">
+                    <div class="card-header bg-primary">Contact Details</div>
                     <div class="card-body">
 
 

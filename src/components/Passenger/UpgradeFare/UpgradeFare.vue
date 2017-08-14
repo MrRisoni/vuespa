@@ -8,11 +8,13 @@
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             Upgrade your seat!
                         </div>
 
-                        <div class="col-md-2 col-md-offset-5">
+                        <div class="col-md-4"></div> <!-- offset does not work -->
+
+                        <div class="col-md-3">
                             <button class="btn btn-xs btn-warning" @click="toggleMe"> Hide </button>
                         </div>
 
@@ -88,7 +90,7 @@
         },
         methods: {
             toggleMe() {
-                this.$store.commit('toggleFarecard', this.passengerid);
+                this.$store.commit('toggleFarePanel', this.passengerid);
             }
         }
 
