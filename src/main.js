@@ -7,7 +7,6 @@ import Vuex from 'vuex'
 import {sync} from 'vuex-router-sync'
 
 
-require('../node_modules/bootstrap/less/bootstrap.less')
 
 Vue.config.productionTip = false
 
