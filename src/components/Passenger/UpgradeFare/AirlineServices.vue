@@ -1,74 +1,61 @@
 <template>
+
+
     <div class="airlineservices">
 
-
-        <div class="card card-primary">
-            <div class="card-header">{{airline}}</div>
-
-            <div class="card-body">
-
-                <div class="row">
-
-                <div v-for="opt of options">
+        <div class="row">
+            <div class="col-md-12">
 
 
+                <div class="card">
+                    <div class="card-header">{{airline}}</div>
 
-                    <div class="col-md-5">
+                    <div class="card-body">
 
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <input type="radio" id="two" value="Two"
-                                       > {{opt.name}}
-
-                            </div>
-
-                            <div class="card-body">
+                        <div class="row">
 
 
-                                <div v-for="pkg of opt.packages">
+                            <div class="col-md-6">
 
+                                <div class="card">
+                                    <div class="card-header">Flex</div>
 
-                                    <div v-if="pkg.status === 'free'">
-                                        <div class="free_package">
-                                            <span class="glyphicon glyphicon-ok "></span>
-                                            {{pkg.title}}
-                                        </div>
-                                    </div>
-
-                                    <div v-if="pkg.status === 'notincl'">
-                                        <div class="notincl_package">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                            {{pkg.title}}
-                                        </div>
-                                    </div>
-
-                                    <div v-if="pkg.status === 'fee'">
-                                        <div class="fee_package">
-                                            <span class="glyphicon glyphicon-eur"></span>
-                                            {{pkg.title}}
-                                        </div>
-                                    </div>
-
-
+                                    <div class="card-body"> Body FLex </div>
                                 </div>
 
 
                             </div>
-                        </div>
 
+                            <div class="col-md-6">
+                                
+                                <div class="card">
+                                    <div class="card-header">Flex</div>
+
+                                    <div class="card-body"> Body FLex </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
-
-
-                </div>
-
             </div>
         </div>
 
 
-    </div>
+        </div>
 </template>
+
+
+<style>
+
+    .airlineservices {
+        margin-top: 4%;
+    }
+
+</style>
+
 
 <script>
     export default {

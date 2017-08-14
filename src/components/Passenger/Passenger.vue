@@ -36,6 +36,9 @@
 
                             <insurance :passengerid="id"></insurance>
 
+
+                            <br>
+
                             <button class="btn btn-primary btn-success"
                                     @click="increment"
                             >Add Passenger

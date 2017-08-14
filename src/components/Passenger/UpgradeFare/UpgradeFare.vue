@@ -24,14 +24,11 @@
 
                 </div>
 
-
                 <div v-if="showMe">
 
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div v-for="carrier of carriers">
 
 
-                            <div v-for="carrier of carriers">
 
                                 <div v-for="airline of upgradeOptions">
                                     <div v-if="airline.carrier == carrier ">
@@ -42,13 +39,10 @@
                                             ></airline-services>
 
                                         </div>
-                                    </div>
-                                </div>
 
 
                             </div>
                         </div>
-
 
                     </div>
 
