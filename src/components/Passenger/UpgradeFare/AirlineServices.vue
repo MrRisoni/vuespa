@@ -2,10 +2,10 @@
     <div class="airlineservices">
 
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">{{airline}}</div>
+        <div class="card card-primary">
+            <div class="card-heading">{{airline}}</div>
 
-            <div class="panel-body">
+            <div class="card-body">
 
                 <div class="row">
 
@@ -15,14 +15,14 @@
 
                     <div class="col-md-5">
 
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
+                        <div class="card card-primary">
+                            <div class="card-heading">
                                 <input type="radio" id="two" value="Two"
                                        > {{opt.name}}
 
                             </div>
 
-                            <div class="panel-body">
+                            <div class="card-body">
 
 
                                 <div v-for="pkg of opt.packages">

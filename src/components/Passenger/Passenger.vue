@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="card panel-primary">
-                    <div class="panel-heading">
+                <div class="card card-primary">
+                    <div class="card-heading">
 
                         <div class="row">
                             <div class="col-md-5">
@@ -20,9 +20,9 @@
                         </div>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
 
-                        <div v-if="showMyPanel">
+                        <div v-if="showMycard">
 
                             <name></name>
 
@@ -66,8 +66,8 @@
             return {}
         },
         computed: {
-            showMyPanel() {
-                return this.$store.state.passengers[this.id - 1].showMyPanel
+            showMycard() {
+                return this.$store.state.passengers[this.id - 1].showMycard
             }
 
         },
@@ -79,7 +79,7 @@
                 console.log('toggle me');
                 console.log(this.id);
 
-                this.$store.commit('togglePassengerPanel', this.id);
+                this.$store.commit('togglePassengercard', this.id);
             }
         }
 

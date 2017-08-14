@@ -97,7 +97,7 @@
         },
         methods: {
             toggleMe() {
-                this.$store.commit('toggleBagPanel', this.passengerid);
+                this.$store.commit('toggleBagcard', this.passengerid);
             }
         }
     }

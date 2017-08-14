@@ -1,10 +1,10 @@
 <template>
     <div class="bookapp">
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">{{airline.carrier}}</div>
+        <div class="card card-primary">
+            <div class="card-heading">{{airline.carrier}}</div>
 
-            <div class="panel-body">
+            <div class="card-body">
 
 
                 <div v-for="bag of airline.bags">

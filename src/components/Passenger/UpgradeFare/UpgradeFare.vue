@@ -88,7 +88,7 @@
         },
         methods: {
             toggleMe() {
-                this.$store.commit('toggleFarePanel', this.passengerid);
+                this.$store.commit('toggleFarecard', this.passengerid);
             }
         }
 

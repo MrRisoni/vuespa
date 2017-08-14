@@ -26,12 +26,12 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Panel heading
+                            <div class="card card-default">
+                                <div class="card-heading">card heading
                                     without title
                                 </div>
-                                <div class="panel-body">
-                                    Basic panel example
+                                <div class="card-body">
+                                    Basic card example
                                 </div>
                             </div>
 
@@ -39,12 +39,12 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Panel heading
+                            <div class="card card-default">
+                                <div class="card-heading">card heading
                                     without title
                                 </div>
-                                <div class="panel-body">
-                                    Basic panel example
+                                <div class="card-body">
+                                    Basic card example
                                 </div>
                             </div>
 
@@ -52,12 +52,12 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Panel heading
+                            <div class="card card-default">
+                                <div class="card-heading">card heading
                                     without title
                                 </div>
-                                <div class="panel-body">
-                                    Basic panel example
+                                <div class="card-body">
+                                    Basic card example
                                 </div>
                             </div>
 
@@ -65,12 +65,12 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Panel heading
+                            <div class="card card-default">
+                                <div class="card-heading">card heading
                                     without title
                                 </div>
-                                <div class="panel-body">
-                                    Basic panel example
+                                <div class="card-body">
+                                    Basic card example
                                 </div>
                             </div>
 
@@ -102,7 +102,7 @@
         methods: {
 
             toggleMe() {
-                this.$store.commit('toggleInsurancePanel', this.passengerid);
+                this.$store.commit('toggleInsurancecard', this.passengerid);
             }
         }
 

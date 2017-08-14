@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Payment Details</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header  bg-primary"> Payment Details</div>
+                    <div class="card-body">
 
                         <div class="row">
 

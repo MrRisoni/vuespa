@@ -4,10 +4,10 @@
         <div class="col-md-6">
 
             <!-- shows what you have purchased -->
-            <div class="panel panel-info">
-                <div class="panel-heading">{{route}}</div>
+            <div class="card card-info">
+                <div class="card-heading">{{route}}</div>
 
-                <div class="panel-body">
+                <div class="card-body">
 
                     <div v-for="bag in boughtBagsDepart">
 
