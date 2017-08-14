@@ -7,8 +7,10 @@ inspired from kiwi.com
 
 This version contains
 
-Vuex (state management)
-and better CSS layout
+-Vuex (state management)
+-better CSS layout 
+-Bootstrap 4
+
 
 
 
