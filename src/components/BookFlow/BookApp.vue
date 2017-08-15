@@ -33,11 +33,11 @@
 
 <script>
 
-    import PriceBox from '../components/PriceBox.vue'
-    import Itinerary from '../components/Itinerary/Itinerary.vue'
-    import Contact from '../components/Contact.vue'
-    import Pay from '../components/Pay.vue'
-    import PassengerList from '../components/PassengerList.vue'
+    import PriceBox from './PriceBox.vue'
+    import Itinerary from '../Itinerary/Itinerary.vue'
+    import Contact from './Contact.vue'
+    import Pay from './Pay.vue'
+    import PassengerList from './PassengerList.vue'
 
 
     export default {

@@ -13,7 +13,7 @@
 
 <script>
 
-    import Passenger from '../components/Passenger/Passenger.vue'
+    import Passenger from '../Passenger/Passenger.vue'
 
 
     export default {
