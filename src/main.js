@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import {sync} from 'vuex-router-sync'
+import VueI18n from 'vue-i18n'
 
 Vue.config.productionTip = false
 
@@ -13,6 +14,7 @@ Vue.use(Vuex)
 import store from './store'
 
 sync(store, router)
+
 
 
 /* eslint-disable no-new */

@@ -44,6 +44,8 @@
                         <div class="row">
                             <div class="col-md-12">
 
+                                {{ $t("message.hello") }}
+
                                 <h3> Total Price : {{getTotalPrice}} {{getCurrency}} </h3>
 
                             </div>
