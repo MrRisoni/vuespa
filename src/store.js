@@ -5,6 +5,67 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
+
+
+
+        currencyData: [
+            {
+                trigram : 'JPY',
+                rate: 129.30
+            },
+            {
+                trigram: 'MXN',
+                rate: 20.98
+            },
+            {
+                trigram : 'HRK',
+                rate: 7.39
+            },
+            {
+                trigram: 'RON',
+                rate: 4.57
+            },
+            {
+                trigram : 'ILS',
+                rate: 4.22
+            },
+            {
+                trigram: 'AZN',
+                rate: 2.01
+            },
+            {
+                trigram : 'CLP',
+                rate: 762.92
+            },
+            {
+                trigram: 'PHP',
+                rate: 60.34
+            },
+            {
+                trigram : 'USD',
+                rate: 1.17
+            },
+            {
+                trigram: 'NOK',
+                rate: 9.36
+            },
+            {
+                trigram : 'CHF',
+                rate: 1.14
+            },
+            {
+                trigram: 'GBP',
+                rate: 0.90
+            },
+            {
+                trigram : 'DKK',
+                rate: 7.43
+            },
+            {
+                trigram: 'SEK',
+                rate: 9.57
+            }
+        ],
         currency: 'EUR',
         paxTypes: [
             {
