@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        totalPrice : 0,
         paxTypes: [
             {
                 type : 'ADT',
@@ -463,6 +462,24 @@ const store = new Vuex.Store({
         {
             state.passengers[passengerid-1].showUpgrade = !state.passengers[passengerid-1].showUpgrade;
         },
+        changePaxType(state,args)
+        {
+            console.log('changePaxType');
+            console.log(args);
+            state.passengers[args.psgrid].type = args.type;
+
+            state.paxTypes.forEach( (px) => {
+               let count = 0;
+               state.passengers.forEach( (ps) => {
+                  if (ps.type === px.type) {
+                      count++;
+                  }
+               });
+               px.count = count;
+            });
+
+        }
+
     }
 })
 

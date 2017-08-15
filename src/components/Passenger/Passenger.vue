@@ -31,7 +31,7 @@
 
                         <div v-if="showMyPanel">
 
-                            <name></name>
+                            <name :passengerid="id"></name>
 
                             <upgradefare :passengerid="id"></upgradefare>
 

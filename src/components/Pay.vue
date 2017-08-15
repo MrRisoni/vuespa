@@ -68,6 +68,16 @@
     </div>
 </template>
 
+
+<style>
+
+    .pay {
+        margin-top: 2%;
+    }
+
+</style>
+
+
 <script>
     export default {
         data() {

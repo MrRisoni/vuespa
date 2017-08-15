@@ -111,6 +111,15 @@
     </div>
 </template>
 
+
+<style>
+
+    .contact {
+        margin-top: 2%;
+    }
+
+</style>
+
 <script>
     export default {
         data() {

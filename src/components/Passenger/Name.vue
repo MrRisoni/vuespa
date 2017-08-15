@@ -10,7 +10,7 @@
 
 
                     <div class="col-md-2">
-                        <select class="form-control" >
+                        <select v-model="selectedPaxType" @change="changePaxType" class="form-control" >
                             <option value="">Age</option>
                             <option value="ADT">Adult</option>
                             <option value="CNN">Child</option>
@@ -66,11 +66,21 @@
 
 
     export default {
+        props: ['passengerid'],
         components: {
             'Passport': Passport
         },
         data() {
-            return {}
+            return {
+                selectedPaxType: ''
+            }
+        },
+        methods: {
+            changePaxType(passengerid)
+            {
+                console.log('Name Component', this.selectedPaxType, this.passengerid-1);
+                this.$store.commit('changePaxType',  { psgrid: this.passengerid-1 , type: this.selectedPaxType});
+            }
         }
     }
 </script>

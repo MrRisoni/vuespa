@@ -8,13 +8,48 @@
                     <div class="card-header"><b>Price Analysis </b></div>
                     <div class="card-body text-white">
 
+                        <div class="row">
 
-                        <div v-for="pax in appState.paxTypes">
-                            <div v-if="pax.count >0">
-                                {{pax.count}} {{pax.name}} x {{pax.netPrice}}
+                            <div class="col-md-12">
+                                <h4 class="analysisCategory">Ticket Price</h4>
+                                <hr>
                             </div>
                         </div>
 
+                        <div v-for="pax in appState.paxTypes">
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <div v-if="pax.count >0">
+                                        {{pax.count}} {{pax.name}} x {{pax.netPrice}}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <h4 class="analysisCategory">Upsales</h4>
+                                <hr>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3> Total Price : {{getTotalPrice}} </h3>
+
+                            </div>
+
+
+                        </div>
 
                     </div>
                 </div>
@@ -34,6 +69,10 @@
 
     }
 
+    .analysisCategory {
+        color: yellow;
+    }
+
 </style>
 
 
@@ -45,6 +84,17 @@
         computed: {
             appState() {
                 return this.$store.state
+            },
+            getTotalPrice() {
+                let mytState = this.$store.state;
+                let total = 0;
+
+                mytState.paxTypes.forEach((pax) => {
+                    if (pax.count > 0) {
+                        total += pax.netPrice * pax.count;
+                    }
+                });
+                return total;
             }
 
         }

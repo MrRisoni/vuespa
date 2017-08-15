@@ -107,7 +107,7 @@
 
 
     .free_package {
-        color: #49fe6a;
+        color: #5fb334;
     }
 
     .notincl_package {
@@ -115,7 +115,7 @@
     }
 
     .fee_package {
-        color: #ffb61e;
+        color: #ffba3b;
     }
 
 
