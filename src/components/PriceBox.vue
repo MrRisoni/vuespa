@@ -10,7 +10,9 @@
 
 
                         <div v-for="pax in appState.paxTypes">
-                            {{pax.count}} {{pax.name}} x {{pax.netPrice}}
+                            <div v-if="pax.count >0">
+                                {{pax.count}} {{pax.name}} x {{pax.netPrice}}
+                            </div>
                         </div>
 
 

@@ -14,6 +14,8 @@
                         +
                     </button>
 
+
+
                     {{bag.title}} {{bag.price}}
                 </div>
 
@@ -41,8 +43,15 @@
 </style>
 
 <script>
+
+    import 'vue-awesome/icons'
+    import Icon from 'vue-awesome/components/Icon'
+
     export default {
         props: ['airline' ,'passengerid'],
+        components: {
+            'VueAwesome': Icon
+        },
         data() {
             return {
 

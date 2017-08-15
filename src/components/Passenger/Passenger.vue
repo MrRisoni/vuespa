@@ -26,6 +26,9 @@
 
                     <div class="card-body">
 
+  <transition name="slide-fade">
+
+
                         <div v-if="showMyPanel">
 
                             <name></name>
@@ -44,8 +47,9 @@
                             >Add Passenger
                             </button>
                         </div>
-                    </div>
 
+                </transition>
+                    </div>
 
                 </div>
             </div>
@@ -62,6 +66,20 @@
         margin-top: 4%;
     }
 
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+
 </style>
 
 <script>
@@ -70,6 +88,7 @@
     import Bags from './Bags/Bags.vue'
     import UpgradeFare from './UpgradeFare/UpgradeFare.vue'
     import Insurance from './Insurance.vue'
+
 
 
     export default {

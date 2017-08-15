@@ -8,28 +8,44 @@
 
                 <div class="row">
 
+
                     <div class="col-md-2">
                         <select class="form-control" >
-                            <option></option>
+                            <option value="">Age</option>
+                            <option value="ADT">Adult</option>
+                            <option value="CNN">Child</option>
+                            <option value="INF">Infant</option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <select class="form-control" >
+                            <option value="">Gender</option>
                             <option value="MR">Male</option>
                             <option value="MS">Female</option>
                         </select>
                     </div>
 
 
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <input type="text"   placeholder="Surname"
                                class="form-control"/>
                     </div>
 
 
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <input type="text"   placeholder="Name"
                                class="form-control"/>
                     </div>
 
 
                 </div>
+
+
+
+                <passport></passport>
+
 
 
             </div>
@@ -43,7 +59,16 @@
 </template>
 
 <script>
+
+
+    import Passport from './Passport.vue';
+
+
+
     export default {
+        components: {
+            'Passport': Passport
+        },
         data() {
             return {}
         }

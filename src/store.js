@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
+        totalPrice : 0,
         paxTypes: [
             {
                 type : 'ADT',
@@ -20,6 +21,13 @@ const store = new Vuex.Store({
                 netPrice: 275
 
             },
+            {
+                type : 'INF',
+                name: 'Infant',
+                count :0,
+                netPrice: 164
+
+            }
         ],
         passengers: [{
             id: 1,
