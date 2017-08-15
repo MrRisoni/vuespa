@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="bookapp">
 
         <div class="row">
@@ -38,6 +40,7 @@
     import Contact from './Contact.vue'
     import Pay from './Pay.vue'
     import PassengerList from './PassengerList.vue'
+
 
 
     export default {

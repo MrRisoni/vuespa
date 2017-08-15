@@ -1,8 +1,10 @@
 <template>
 
+
+
     <div id="app">
         <div class="container-fluid">
-            <img src="./assets/logo.png">
+            <img class="vueLogo" src="./assets/logo.png">
             <router-view></router-view>
         </div>
     </div>
@@ -11,12 +13,21 @@
 
 
 <script>
+
+
     export default {
         name: 'app'
     }
 </script>
 
 <style>
+
+
+    .vueLogo {
+        width: 3%;
+        height: auto;
+    }
+
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
