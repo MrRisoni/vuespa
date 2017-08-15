@@ -479,6 +479,10 @@ const store = new Vuex.Store({
                px.count = count;
             });
 
+        },
+        changeCurrency(state, newCurrency)
+        {
+            state.currency = newCurrency;
         }
 
     }

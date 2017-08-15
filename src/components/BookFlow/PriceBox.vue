@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3> Total Price : {{getTotalPrice}} </h3>
+                                <h3> Total Price : {{getTotalPrice}} {{getCurrency}} </h3>
 
                             </div>
 
@@ -84,6 +84,9 @@
         computed: {
             appState() {
                 return this.$store.state
+            },
+            getCurrency() {
+                return this.$store.state.currency
             },
             getTotalPrice() {
                 let mytState = this.$store.state;
