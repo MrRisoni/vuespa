@@ -97,6 +97,20 @@
                         total += pax.netPrice * pax.count;
                     }
                 });
+
+                let rate = 1;
+
+                mytState.currencyData.forEach( (cur) => {
+                   if (cur.trigram ===  mytState.currency) {
+                       rate = cur.rate;
+
+                   }
+                });
+
+                total *= rate;
+
+                total = total.toFixed(2);
+
                 return total;
             }
 
