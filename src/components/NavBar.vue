@@ -5,13 +5,11 @@
             <div class="container">
                 <a class="navbar-brand" href="#"> VueOTASPA.js<img class="vueLogo" src="../assets/logo.png"> </a>
 
-                <ul>{{getCurrency}}</ul>
-
                 <ul> Choose your currency
                     <select v-model="selectedCurrency" @change="changeCurrency" class="form-control">
-                        <option value="EUR">EUR</option>
-                        <option value="CHF">CHF</option>
-                        <option value="INF">Infant</option>
+                        <option v-for="option in getCurrencies" v-bind:value="option.trigram">
+                            {{ option.trigram }}
+                        </option>
                     </select>
                 </ul>
 
@@ -27,8 +25,8 @@
 <script>
     export default {
         computed: {
-            getCurrency() {
-                return this.$store.state.currency
+            getCurrencies() {
+                return this.$store.state.currencyData
             }
         },
         data() {

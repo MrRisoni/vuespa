@@ -5,10 +5,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-
-
-
         currencyData: [
+            {
+                trigram : 'EUR',
+                rate: 1
+            },
             {
                 trigram : 'JPY',
                 rate: 129.30
