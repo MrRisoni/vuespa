@@ -15,6 +15,7 @@ import store from './store'
 
 sync(store, router)
 
+store.state.currency;
 
 
 /* eslint-disable no-new */

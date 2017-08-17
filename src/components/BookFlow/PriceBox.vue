@@ -22,7 +22,7 @@
                                 <div class="col-md-12">
 
                                     <div v-if="pax.count >0">
-                                        {{pax.count}} {{pax.name}} x {{pax.netPrice}}
+                                        {{pax.count}} {{pax.name}} x {{pax.convertedPrice}} {{getCurrency}}
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +43,6 @@
                         <br>
                         <div class="row">
                             <div class="col-md-12">
-
-                                {{ $t("message.hello") }}
 
                                 <h3> Total Price : {{getTotalPrice}} {{getCurrency}} </h3>
 
@@ -94,11 +92,6 @@
                 let mytState = this.$store.state;
                 let total = 0;
 
-                mytState.paxTypes.forEach((pax) => {
-                    if (pax.count > 0) {
-                        total += pax.netPrice * pax.count;
-                    }
-                });
 
                 let rate = 1;
 
@@ -109,7 +102,13 @@
                    }
                 });
 
-                total *= rate;
+
+                mytState.paxTypes.forEach((pax) => {
+                    if (pax.count > 0) {
+                        pax.convertedPrice = (pax.netPrice * rate).toFixed(2);
+                        total += pax.convertedPrice * pax.count;
+                    }
+                });
 
                 total = total.toFixed(2);
 

@@ -74,21 +74,23 @@ const store = new Vuex.Store({
                 name: 'Adults',
                 count :2,
                 netPrice: 356,
+                convertedPrice : 356
 
             },
             {
                 type : 'CNN',
                 name: 'Children',
                 count :1,
-                netPrice: 275
+                netPrice: 275,
+                convertedPrice : 275
 
             },
             {
                 type : 'INF',
                 name: 'Infant',
                 count :0,
-                netPrice: 164
-
+                netPrice: 164,
+                convertedPrice: 164
             }
         ],
         passengers: [{
