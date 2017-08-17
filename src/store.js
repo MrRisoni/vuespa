@@ -7,11 +7,11 @@ const store = new Vuex.Store({
     state: {
         currencyData: [
             {
-                trigram : 'EUR',
+                trigram: 'EUR',
                 rate: 1
             },
             {
-                trigram : 'JPY',
+                trigram: 'JPY',
                 rate: 129.30
             },
             {
@@ -19,7 +19,7 @@ const store = new Vuex.Store({
                 rate: 20.98
             },
             {
-                trigram : 'HRK',
+                trigram: 'HRK',
                 rate: 7.39
             },
             {
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
                 rate: 4.57
             },
             {
-                trigram : 'ILS',
+                trigram: 'ILS',
                 rate: 4.22
             },
             {
@@ -35,7 +35,7 @@ const store = new Vuex.Store({
                 rate: 2.01
             },
             {
-                trigram : 'CLP',
+                trigram: 'CLP',
                 rate: 762.92
             },
             {
@@ -43,7 +43,7 @@ const store = new Vuex.Store({
                 rate: 60.34
             },
             {
-                trigram : 'USD',
+                trigram: 'USD',
                 rate: 1.17
             },
             {
@@ -51,7 +51,7 @@ const store = new Vuex.Store({
                 rate: 9.36
             },
             {
-                trigram : 'CHF',
+                trigram: 'CHF',
                 rate: 1.14
             },
             {
@@ -59,7 +59,7 @@ const store = new Vuex.Store({
                 rate: 0.90
             },
             {
-                trigram : 'DKK',
+                trigram: 'DKK',
                 rate: 7.43
             },
             {
@@ -70,25 +70,25 @@ const store = new Vuex.Store({
         currency: 'EUR',
         paxTypes: [
             {
-                type : 'ADT',
+                type: 'ADT',
                 name: 'Adults',
-                count :2,
+                count: 2,
                 netPrice: 356,
-                convertedPrice : 356
+                convertedPrice: 356
 
             },
             {
-                type : 'CNN',
+                type: 'CNN',
                 name: 'Children',
-                count :1,
+                count: 1,
                 netPrice: 275,
-                convertedPrice : 275
+                convertedPrice: 275
 
             },
             {
-                type : 'INF',
+                type: 'INF',
                 name: 'Infant',
-                count :0,
+                count: 0,
                 netPrice: 164,
                 convertedPrice: 164
             }
@@ -98,15 +98,15 @@ const store = new Vuex.Store({
             type: 'ADT',
             upgradeFare: [
                 {
-                    airline : 'FR',
-                    option: '',
-                } ,
-                {
-                    airline : 'A3',
+                    airline: 'FR',
                     option: '',
                 },
                 {
-                    airline : 'BA',
+                    airline: 'A3',
+                    option: '',
+                },
+                {
+                    airline: 'BA',
                     option: '',
                 }
             ],
@@ -126,15 +126,15 @@ const store = new Vuex.Store({
                 type: 'ADT',
                 upgradeFare: [
                     {
-                        airline : 'FR',
-                        option: '',
-                    } ,
-                    {
-                        airline : 'A3',
+                        airline: 'FR',
                         option: '',
                     },
                     {
-                        airline : 'BA',
+                        airline: 'A3',
+                        option: '',
+                    },
+                    {
+                        airline: 'BA',
                         option: '',
                     }
                 ],
@@ -154,15 +154,15 @@ const store = new Vuex.Store({
                 type: 'CNN',
                 upgradeFare: [
                     {
-                        airline : 'FR',
-                        option: '',
-                    } ,
-                    {
-                        airline : 'A3',
+                        airline: 'FR',
                         option: '',
                     },
                     {
-                        airline : 'BA',
+                        airline: 'A3',
+                        option: '',
+                    },
+                    {
+                        airline: 'BA',
                         option: '',
                     }
                 ],
@@ -266,15 +266,25 @@ const store = new Vuex.Store({
         ],
         upgradeFare: [{
             carrier: "FR",
-            options: []
+            options: [
+                {
+                    id: 1,
+                    name: 'Light',
+                    convertedPrice: 0,
+                    price: 0,
+                    packages: [{
+                        title: 'cancellation'
+                    }]
+                }
+            ]
         },
             {
                 carrier: "A3",
                 options: [{
                     id: 1,
                     name: 'Light',
-                    convertedPrice : 0,
-                    netPrice: 0,
+                    convertedPrice: 0,
+                    price: 0,
                     packages: [{
                         title: 'cancellation'
                     }]
@@ -282,8 +292,8 @@ const store = new Vuex.Store({
                     {
                         id: 2,
                         name: 'Flex',
-                        convertedPrice : 0,
-                        netPrice: 0,
+                        convertedPrice: 0,
+                        price: 0,
                         packages: [{
                             title: 'wifi'
                         }]
@@ -295,8 +305,8 @@ const store = new Vuex.Store({
                 options: [{
                     id: 1,
                     name: 'Basic',
-                    convertedPrice : 0,
-                    netPrice: 0,
+                    convertedPrice: 0,
+                    price: 0,
                     packages: [
                         {
                             title: 'Hand baggage',
@@ -331,8 +341,8 @@ const store = new Vuex.Store({
                     {
                         id: 2,
                         name: 'Basic Plus',
-                        convertedPrice : 10,
-                        netPrice: 10,
+                        convertedPrice: 10,
+                        price: 10,
                         packages: [
                             {
                                 title: 'Hand baggage',
@@ -366,8 +376,8 @@ const store = new Vuex.Store({
                     {
                         id: 3,
                         name: 'Economy Premium',
-                        convertedPrice : 0,
-                        netPrice: 30,
+                        convertedPrice: 0,
+                        price: 30,
                         packages: [
                             {
                                 title: 'Hand baggage',
@@ -408,8 +418,8 @@ const store = new Vuex.Store({
                     {
                         id: 4,
                         name: 'Economy Lux',
-                        convertedPrice : 0,
-                        netPrice: 40,
+                        convertedPrice: 0,
+                        price: 40,
                         packages: [
                             {
                                 title: 'Hand baggage',
@@ -545,15 +555,15 @@ const store = new Vuex.Store({
                 type: 'ADT',
                 upgradeFare: [
                     {
-                        airline : 'FR',
-                        option: '',
-                    } ,
-                    {
-                        airline : 'A3',
+                        airline: 'FR',
                         option: '',
                     },
                     {
-                        airline : 'BA',
+                        airline: 'A3',
+                        option: '',
+                    },
+                    {
+                        airline: 'BA',
                         option: '',
                     }
                 ],
@@ -585,35 +595,32 @@ const store = new Vuex.Store({
             console.log(newbag)
             state.passengers[passengerid - 1].bags[0].types.push(newbag);
         },
-        changePaxType(state,args)
-        {
+        changePaxType(state, args) {
             console.log('changePaxType');
             console.log(args);
             state.passengers[args.psgrid].type = args.type;
 
-            state.paxTypes.forEach( (px) => {
-               let count = 0;
-               state.passengers.forEach( (ps) => {
-                  if (ps.type === px.type) {
-                      count++;
-                  }
-               });
-               px.count = count;
+            state.paxTypes.forEach((px) => {
+                let count = 0;
+                state.passengers.forEach((ps) => {
+                    if (ps.type === px.type) {
+                        count++;
+                    }
+                });
+                px.count = count;
             });
 
         },
-        changeCurrency(state, newCurrency)
-        {
+        changeCurrency(state, newCurrency) {
             state.currency = newCurrency;
         },
-        upgradeMyFare(state, args)
-        {
+        upgradeMyFare(state, args) {
             console.log('Upgrade My Fare');
             console.log(args);
-            state.passengers[args.psgrid].upgradeFare.forEach( (carrier) => {
+            state.passengers[args.psgrid].upgradeFare.forEach((carrier) => {
                 if (carrier.airline === args.carrier) {
                     // set selection
-                    carrier.selection = args.selection;
+                    carrier.option = args.selection;
                 }
 
             });

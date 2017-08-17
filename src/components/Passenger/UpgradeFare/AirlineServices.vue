@@ -155,7 +155,7 @@
                     if (fr.carrier === this.airline) {
                         fr.options.forEach((opt) => {
                             if (opt.name === this.selectedFare) {
-                                price = opt.netPrice * rate;
+                                price = opt.price * rate;
                             }
                         });
                     }
