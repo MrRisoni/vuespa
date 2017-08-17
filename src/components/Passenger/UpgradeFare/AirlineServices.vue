@@ -42,7 +42,7 @@
 
                                 <div class="col-md-7">
 
-                                    <select v-model="selectService" class="form-control">
+                                    <select v-model="selectedFare" class="form-control">
                                         <option v-for="option in options" v-bind:value="option.name">
                                             {{ option.name }}
                                         </option>
@@ -62,19 +62,22 @@
                     <div class="card-body">
 
 
-
-
-
                         <div v-for="opt of options">
-                            <div class="row">
 
-                                <fare-class :FareClassName="opt.name"
-                                            :packages="opt.packages"></fare-class>
+                            <div v-if="opt.name == selectedFare">
+                                <div class="row">
 
+                                    <fare-class :FareClassName="opt.name"
+                                                :packages="opt.packages"></fare-class>
+
+                                </div>
                             </div>
-
                         </div>
 
+                    </div>
+
+                    <div class="card-footer">
+                        Price : {{getFarePrice}} {{getCurrency}}
                     </div>
                 </div>
 
@@ -82,8 +85,6 @@
         </div>
     </div>
 
-
-    </div>
 </template>
 
 
@@ -109,13 +110,52 @@
         data() {
             return {
                 toggleButton: 'Hide',
-                showMe: true
+                showMe: true,
+                selectedFare: ''
             }
         },
         methods: {
             toggleMe() {
                 this.showMe = !this.showMe;
                 this.toggleButton = (this.showMe) ? 'Hide' : 'Show';
+            }
+        },
+        computed: {
+            getCurrency()
+            {
+                return  this.$store.state.currency;
+            },
+            getFarePrice()
+            {
+                let fares = this.$store.state.upgradeFare;
+                let currency = this.$store.state.currency;
+                let currencyData = this.$store.state.currencyData;
+
+
+                let rate = 1;
+                let price = 0;
+
+
+                currencyData.forEach( (cur) => {
+                    if (cur.trigram ===  currency) {
+                        rate = cur.rate;
+                    }
+                });
+
+
+                fares.forEach((fr) => {
+
+                    if (fr.carrier === this.airline) {
+                        fr.options.forEach((opt) => {
+                            if (opt.name === this.selectedFare) {
+                                price = opt.netPrice * rate;
+                            }
+                        });
+                    }
+                });
+
+                return price.toFixed(2);
+
             }
         }
     }

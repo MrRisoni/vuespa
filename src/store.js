@@ -240,6 +240,8 @@ const store = new Vuex.Store({
                 options: [{
                     id: 1,
                     name: 'Light',
+                    convertedPrice : 0,
+                    netPrice: 0,
                     packages: [{
                         title: 'cancellation'
                     }]
@@ -247,6 +249,8 @@ const store = new Vuex.Store({
                     {
                         id: 2,
                         name: 'Flex',
+                        convertedPrice : 0,
+                        netPrice: 0,
                         packages: [{
                             title: 'wifi'
                         }]
@@ -258,6 +262,8 @@ const store = new Vuex.Store({
                 options: [{
                     id: 1,
                     name: 'Basic',
+                    convertedPrice : 0,
+                    netPrice: 0,
                     packages: [
                         {
                             title: 'Hand baggage',
@@ -292,6 +298,8 @@ const store = new Vuex.Store({
                     {
                         id: 2,
                         name: 'Basic Plus',
+                        convertedPrice : 10,
+                        netPrice: 10,
                         packages: [
                             {
                                 title: 'Hand baggage',
@@ -325,6 +333,8 @@ const store = new Vuex.Store({
                     {
                         id: 3,
                         name: 'Economy Premium',
+                        convertedPrice : 0,
+                        netPrice: 30,
                         packages: [
                             {
                                 title: 'Hand baggage',
@@ -365,6 +375,8 @@ const store = new Vuex.Store({
                     {
                         id: 4,
                         name: 'Economy Lux',
+                        convertedPrice : 0,
+                        netPrice: 40,
                         packages: [
                             {
                                 title: 'Hand baggage',

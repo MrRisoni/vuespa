@@ -15,28 +15,25 @@
 
                         <div v-if="pkg.status === 'free'">
                             <div class="free_package">
-                                v
-                                {{pkg.title}}
+                                v {{pkg.title}}
                             </div>
                         </div>
 
 
                         <div v-if="pkg.status === 'notincl'">
                             <div class="notincl_package">
-                                X
-                                {{pkg.title}}
+                                X {{pkg.title}}
                             </div>
                         </div>
 
                         <div v-if="pkg.status === 'fee'">
                             <div class="fee_package">
-                                $
-                                {{pkg.title}}
+                                $ {{pkg.title}}
                             </div>
                         </div>
 
                     </div>
-                  
+
 
                 </div>
             </div>
