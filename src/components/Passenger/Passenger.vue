@@ -110,8 +110,7 @@
             },
             toggleMe() {
                 this.showMe = !this.showMe;
-                this.label = (this.showMe) ? 'Hide' : 'Show';
-
+                this.label = (this.showMe) ? 'Hide' : 'Show'
             }
         }
 

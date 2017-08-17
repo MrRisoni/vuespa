@@ -25,16 +25,18 @@
 
                     </div>
 
-                    <div class="card-body">
+                    <div v-if="showMe">
+                        <div class="card-body">
 
-                        <div v-for="opt of options">
-                            <div class="row">
+                            <div v-for="opt of options">
+                                <div class="row">
 
-                                <fare-class :FareClassName="opt.name"
-                                            :packages="opt.packages"></fare-class>
+                                    <fare-class :FareClassName="opt.name"
+                                                :packages="opt.packages"></fare-class>
+
+                                </div>
 
                             </div>
-
 
                         </div>
                     </div>
@@ -76,12 +78,7 @@
         methods: {
             toggleMe() {
                 this.showMe = !this.showMe;
-                if (this.showMe) {
-                    this.toggleButton = 'Hide';
-                }
-                else {
-                    this.toggleButton = 'Show';
-                }
+                this.toggleButton = (this.showMe) ? 'Hide' : 'Show';
             }
         }
     }

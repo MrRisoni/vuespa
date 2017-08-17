@@ -16,7 +16,7 @@
                         <div class="col-md-5"></div>
 
                         <div class="col-md-2">
-                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> {{label}} </button>
                         </div>
 
                     </div>
@@ -70,12 +70,12 @@
     export default {
         props: ['passengerid'],
         data() {
-            return {}
+            return {
+                showMe: true,
+                label: 'Hide'
+            }
         },
         computed: {
-            showMe() {
-                return this.$store.state.passengers[this.passengerid - 1].showInsurance
-            },
             InsuranceOptions() {
                 return this.$store.state.insuranceInfo;
             },
@@ -84,10 +84,11 @@
             }
         },
         methods: {
-
             toggleMe() {
-                this.$store.commit('toggleInsurancePanel', this.passengerid);
+                this.showMe = !this.showMe;
+                this.toggleButton = (this.showMe) ? 'Hide' : 'Show';
             }
+
         }
 
     }

@@ -16,7 +16,7 @@
                         <div class="col-md-5"></div> <!-- offset does not work -->
 
                         <div class="col-md-2">
-                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> {{label}} </button>
                         </div>
 
 
@@ -75,7 +75,10 @@
             'airlineServices': AirlineServices
         },
         data() {
-            return {}
+            return {
+                showMe: true,
+                label: 'Hide'
+            }
         },
         computed: {
             startAirport() {
@@ -89,14 +92,12 @@
             },
             carriers() {
                 return this.$store.state.carriers
-            },
-            showMe() {
-                return this.$store.state.passengers[this.passengerid - 1].showUpgrade
             }
         },
         methods: {
             toggleMe() {
-                this.$store.commit('toggleFarePanel', this.passengerid);
+                this.showMe = !this.showMe;
+                this.label = (this.showMe) ? 'Hide' : 'Show'
             }
         }
 
