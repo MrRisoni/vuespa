@@ -42,7 +42,7 @@
 
                                 <div class="col-md-7">
 
-                                    <select v-model="selectedFare" class="form-control">
+                                    <select v-model="selectedFare"  @change="changeFare" class="form-control">
                                         <option v-for="option in options" v-bind:value="option.name">
                                             {{ option.name }}
                                         </option>
@@ -103,7 +103,7 @@
 
 
     export default {
-        props: ['airline', 'options'],
+        props: ['airline', 'options', 'passengerid'],
         components: {
             'FareClass': FareClass
         },
@@ -118,6 +118,13 @@
             toggleMe() {
                 this.showMe = !this.showMe;
                 this.toggleButton = (this.showMe) ? 'Hide' : 'Show';
+            },
+            changeFare()
+            {
+               this.$store.commit('upgradeMyFare', { psgrid: this.passengerid -1  ,
+                                                carrier: this.airline,
+                                                selection: this.selectedFare} );
+
             }
         },
         computed: {

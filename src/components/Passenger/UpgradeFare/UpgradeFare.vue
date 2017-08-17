@@ -36,6 +36,7 @@
 
                                             <airline-services :airline="carrier"
                                                               :options="airline.options"
+                                                              :passengerid="passengerid"
                                             ></airline-services>
 
                                         </div>

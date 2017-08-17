@@ -96,9 +96,20 @@ const store = new Vuex.Store({
         passengers: [{
             id: 1,
             type: 'ADT',
-            showBags: true,
-            showInsurance: true,
-            showUpgrade: true,
+            upgradeFare: [
+                {
+                    airline : 'FR',
+                    option: '',
+                } ,
+                {
+                    airline : 'A3',
+                    option: '',
+                },
+                {
+                    airline : 'BA',
+                    option: '',
+                }
+            ],
             bags: [
                 {
                     route: 'ATH-LHR',
@@ -113,9 +124,20 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 type: 'ADT',
-                showBags: false,
-                showInsurance: false,
-                showUpgrade: false,
+                upgradeFare: [
+                    {
+                        airline : 'FR',
+                        option: '',
+                    } ,
+                    {
+                        airline : 'A3',
+                        option: '',
+                    },
+                    {
+                        airline : 'BA',
+                        option: '',
+                    }
+                ],
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -130,9 +152,20 @@ const store = new Vuex.Store({
             {
                 id: 3,
                 type: 'CNN',
-                showBags: false,
-                showInsurance: false,
-                showUpgrade: true,
+                upgradeFare: [
+                    {
+                        airline : 'FR',
+                        option: '',
+                    } ,
+                    {
+                        airline : 'A3',
+                        option: '',
+                    },
+                    {
+                        airline : 'BA',
+                        option: '',
+                    }
+                ],
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -510,9 +543,20 @@ const store = new Vuex.Store({
             let new_pap = {
                 id: papCount,
                 type: 'ADT',
-                showBags: false,
-                showInsurance: false,
-                showUpgrade: false,
+                upgradeFare: [
+                    {
+                        airline : 'FR',
+                        option: '',
+                    } ,
+                    {
+                        airline : 'A3',
+                        option: '',
+                    },
+                    {
+                        airline : 'BA',
+                        option: '',
+                    }
+                ],
                 bags: [
                     {
                         route: 'ATH-LHR',
@@ -541,18 +585,6 @@ const store = new Vuex.Store({
             console.log(newbag)
             state.passengers[passengerid - 1].bags[0].types.push(newbag);
         },
-        toggleBagPanel(state,passengerid)
-        {
-            state.passengers[passengerid-1].showBags = !state.passengers[passengerid-1].showBags;
-        },
-        toggleInsurancePanel(state,passengerid)
-        {
-            state.passengers[passengerid-1].showInsurance = !state.passengers[passengerid-1].showInsurance;
-        },
-        toggleFarePanel(state,passengerid)
-        {
-            state.passengers[passengerid-1].showUpgrade = !state.passengers[passengerid-1].showUpgrade;
-        },
         changePaxType(state,args)
         {
             console.log('changePaxType');
@@ -573,6 +605,18 @@ const store = new Vuex.Store({
         changeCurrency(state, newCurrency)
         {
             state.currency = newCurrency;
+        },
+        upgradeMyFare(state, args)
+        {
+            console.log('Upgrade My Fare');
+            console.log(args);
+            state.passengers[args.psgrid].upgradeFare.forEach( (carrier) => {
+                if (carrier.airline === args.carrier) {
+                    // set selection
+                    carrier.selection = args.selection;
+                }
+
+            });
         }
 
     }

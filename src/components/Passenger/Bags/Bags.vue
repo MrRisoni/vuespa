@@ -15,7 +15,7 @@
                         <div class="col-md-5"></div>
 
                         <div class="col-xs-2">
-                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> Hide </button>
+                            <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> {{label}} </button>
                         </div>
 
                     </div>
@@ -82,7 +82,10 @@
             'purchasedleg': Purchasedleg
         },
         data() {
-            return {}
+            return {
+                showMe: true,
+                label: 'Hide'
+            }
         },
         computed: {
             returnRoute() {
@@ -99,14 +102,12 @@
             },
             inboundCarriers() {
                 return this.$store.state.inboundCarriers
-            },
-            showMe() {
-                return this.$store.state.passengers[this.passengerid - 1].showBags
             }
         },
         methods: {
             toggleMe() {
-                this.$store.commit('toggleBagPanel', this.passengerid);
+                this.showMe = !this.showMe;
+                this.label = (this.showMe) ? 'Hide' : 'Show'
             }
         }
     }
