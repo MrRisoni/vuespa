@@ -27,52 +27,18 @@
 
                     <div class="row">
 
-                        <div class="col-md-3">
-                            <div class="card card-default">
-                                <div class="card-header">card heading
-                                    without title
+
+                        <div class="col-md-3" v-for="ins in InsuranceOptions">
+
+                            <div class="card text-center">
+                                <div class="card-header bg-warning ">
+                                    {{ins.title}}  <input type="radio" :id="ins.id" :value="0" v-model="picked">
                                 </div>
                                 <div class="card-body">
                                     Basic card example
                                 </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div class="card card-default">
-                                <div class="card-header">card heading
-                                    without title
-                                </div>
-                                <div class="card-body">
-                                    Basic card example
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div class="card card-default">
-                                <div class="card-header">card heading
-                                    without title
-                                </div>
-                                <div class="card-body">
-                                    Basic card example
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div class="card card-default">
-                                <div class="card-header">card heading
-                                    without title
-                                </div>
-                                <div class="card-body">
-                                    Basic card example
+                                <div class="card-footer">
+                                    {{ins.convertedPrice}} {{getCurrency}}
                                 </div>
                             </div>
 
@@ -109,6 +75,12 @@
         computed: {
             showMe() {
                 return this.$store.state.passengers[this.passengerid - 1].showInsurance
+            },
+            InsuranceOptions() {
+                return this.$store.state.insuranceInfo;
+            },
+            getCurrency() {
+                return this.$store.state.currency
             }
         },
         methods: {

@@ -166,22 +166,26 @@ const store = new Vuex.Store({
         insuranceInfo: [{
             id: 1,
             title: "No insurance",
-            price: 0
+            price: 0,
+            convertedPrice: 0
         },
             {
                 id: 2,
                 title: "Globy Classic",
-                price: 13.56
+                price: 5.16,
+                convertedPrice: 5.16
             },
             {
                 id: 3,
                 title: "Globy Cancellation",
-                price: 25.68
+                price: 15.68,
+                convertedPrice: 15.68
             },
             {
                 id: 4,
                 title: "Globy Schengen",
-                price: 39.45
+                price: 22.15,
+                convertedPrice: 22.15
             }
         ],
         bagAllowance: [{
