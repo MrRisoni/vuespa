@@ -491,11 +491,29 @@ const store = new Vuex.Store({
             state.bags++
         },
         addPassenger(state) {
-            let pap = {
-                id: 4,
-                type: 'INF'
+
+            let papCount = state.passengers.length + 1;
+
+            let new_pap = {
+                id: papCount,
+                type: 'ADT',
+                showBags: false,
+                showInsurance: false,
+                showUpgrade: false,
+                showMyPanel: true,
+                bags: [
+                    {
+                        route: 'ATH-LHR',
+                        types: []
+                    },
+                    {
+                        route: 'LHR-ATH',
+                        types: []
+                    }
+                ]
             }
-            state.passengers.push(pap)
+
+            state.passengers.push(new_pap)
 
             state.paxTypes[0].count++;
         },
