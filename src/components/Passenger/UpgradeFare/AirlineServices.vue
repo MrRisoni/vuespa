@@ -25,25 +25,62 @@
 
                     </div>
 
-                    <div v-if="showMe">
+
+                    <div class="card">
+                        <div class="card-header">
+
+
+                        </div>
+
                         <div class="card-body">
 
-                            <div v-for="opt of options">
-                                <div class="row">
+                            <div class="row">
 
-                                    <fare-class :FareClassName="opt.name"
-                                                :packages="opt.packages"></fare-class>
-
+                                <div class="col-md-5">
+                                    Pick service
                                 </div>
 
+                                <div class="col-md-7">
+
+                                    <select v-model="selectService" class="form-control">
+                                        <option v-for="option in options" v-bind:value="option.name">
+                                            {{ option.name }}
+                                        </option>
+                                    </select>
+
+                                </div>
                             </div>
+
 
                         </div>
                     </div>
 
+
                 </div>
+
+                <div v-if="showMe">
+                    <div class="card-body">
+
+
+
+
+
+                        <div v-for="opt of options">
+                            <div class="row">
+
+                                <fare-class :FareClassName="opt.name"
+                                            :packages="opt.packages"></fare-class>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 
 
     </div>
