@@ -83,6 +83,9 @@
 
     }
 
+
+
+
     .analysisCategory {
         color: yellow;
     }
