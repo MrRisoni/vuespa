@@ -44,10 +44,11 @@
         <div class="row">
 
 
-
             <div class="col-md-12">
 
-                <carcarousel :carData="carData" ></carcarousel>
+                <div v-if="carData.length>0">
+                    <carcarousel :carData="carData"></carcarousel>
+                </div>
             </div>
         </div>
 
@@ -66,7 +67,7 @@
     export default {
         components: {
             'navbar': NavBar,
-            'carcarousel' : CarCarousel
+            'carcarousel': CarCarousel
         },
         data() {
             return {
@@ -81,7 +82,7 @@
                 var self = this;
 
                 setTimeout(function () {
-                        self.carData = self.$store.state.carResults;
+                    self.carData = self.$store.state.carResults;
                 }, 4000);
             }
         }
