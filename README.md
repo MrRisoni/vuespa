@@ -13,7 +13,7 @@ This version contains
 
 -Bootstrap 4
 
-- Hotel Car combination in results
+- Hotel Car Flights combination in results (inspired from expedia.com )
 
 - Currency selection
 
@@ -29,6 +29,8 @@ Zurich - Rhodes:
  Hotel and Car booking in Rhodes
  
  RHO -> ATH with easyJet
+ 
+ ATH->ZRH with Aegean 
  
 
 ---------

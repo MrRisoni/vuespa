@@ -22,6 +22,15 @@
     </div>
 </template>
 
+
+<style>
+
+    .NavBar {
+        margin-bottom: 5%;
+    }
+
+</style>
+
 <script>
     export default {
         computed: {

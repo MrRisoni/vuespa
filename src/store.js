@@ -3,8 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import carResults from './dummyResults/carResults.json'
+
 const store = new Vuex.Store({
     state: {
+        carResults : carResults,
         currencyData: [
             {
                 trigram: 'EUR',
@@ -68,6 +71,7 @@ const store = new Vuex.Store({
             }
         ],
         currency: 'EUR',
+        currentRate: 1,
         paxTypes: [
             {
                 type: 'ADT',
@@ -613,6 +617,19 @@ const store = new Vuex.Store({
         },
         changeCurrency(state, newCurrency) {
             state.currency = newCurrency;
+
+            state.currencyData.forEach( ( cur) => {
+                if (cur.trigram === newCurrency){
+                    state.currentRate = cur.rate;
+                }
+            });
+
+            //recalculate prices in results
+           state.carResults.forEach( (cr) => {
+              cr.convertedPrice = (cr.pricePerDay * 5 ) * state.currentRate;
+              cr.convertedPrice = cr.convertedPrice.toFixed(2);
+           });
+
         },
         upgradeMyFare(state, args) {
             console.log('Upgrade My Fare');
@@ -625,7 +642,6 @@ const store = new Vuex.Store({
 
             });
         }
-
     }
 })
 

@@ -110,13 +110,7 @@
                 // Carrier Fare Nums Price
                 let myState = this.$store.state;
 
-                let rate = 1;
-
-                myState.currencyData.forEach((cur) => {
-                    if (cur.trigram === myState.currency) {
-                        rate = cur.rate;
-                    }
-                });
+                let rate = myState.currencyRate;
 
                 let fares = [];
 
@@ -155,15 +149,7 @@
                 let myState = this.$store.state;
                 let total = 0;
 
-
-                let rate = 1;
-
-                myState.currencyData.forEach((cur) => {
-                    if (cur.trigram === myState.currency) {
-                        rate = cur.rate;
-
-                    }
-                });
+                let rate = myState.currencyRate;
 
 
                 myState.paxTypes.forEach((pax) => {
