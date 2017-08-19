@@ -6,19 +6,15 @@
         <div class="row">
 
 
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="fromAirport" placeholder="From">
+            </div>
 
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="fromAirport" placeholder="From">
-                </div>
+            <div class="col-md-3"></div>
 
-                <div class="col-md-3"></div>
-
-                <div class="input-group col-md-4">
-                    <input type="text" class="form-control" id="toAirport" placeholder="To">
-                </div>
-
-
-
+            <div class="input-group col-md-4">
+                <input type="text" class="form-control" id="toAirport" placeholder="To">
+            </div>
 
 
         </div>
@@ -45,14 +41,18 @@
         </div>
 
 
-            <div class="row">
+        <div class="row">
+
+
+
             <div class="col-md-12">
 
+                <carcarousel :carData="carData" ></carcarousel>
             </div>
         </div>
 
 
-            <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
+        <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
 
     </div>
 </template>
@@ -61,30 +61,28 @@
 <script>
 
     import NavBar from '../NavBar.vue';
+    import CarCarousel from './CarCarousel.vue';
 
     export default {
         components: {
             'navbar': NavBar,
+            'carcarousel' : CarCarousel
         },
         data() {
             return {
-                msg: 'dsds'
-            }
-        },
-        computed : {
-            getCarResults(){
-                return this.$store.state.carResultsFetched ? this.$store.state.carResults : [];
+                msg: '',
+                carData: []
             }
         },
         methods: {
-            searchClicked()
-            {
-                this.msg =' Searching...';
-                var self = this;
-                setTimeout( function () {
-                    self.msg =' OK!!';
+            searchClicked() {
+                this.msg = ' Searching...';
 
-                },6000);
+                var self = this;
+
+                setTimeout(function () {
+                        self.carData = self.$store.state.carResults;
+                }, 4000);
             }
         }
 
