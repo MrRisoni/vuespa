@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Citroen C1",
+    "pricePerDay": 17.55,
+    "convertedPrice": 17.55
+  },
+  {
+    "id": 2,
+    "name": "Ford Fiesta",
+    "pricePerDay": 20.48,
+    "convertedPrice": 20.48
+  }
+]

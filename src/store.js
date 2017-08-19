@@ -3,8 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import carResults from './dummyResults/carResults.json'
+
 const store = new Vuex.Store({
     state: {
+        carResults : carResults,
+        carResultsFetched : false,
         currencyData: [
             {
                 trigram: 'EUR',
@@ -624,8 +628,11 @@ const store = new Vuex.Store({
                 }
 
             });
+        },
+        searchForCars(state)
+        {
+            state.carResultsFetched = true;
         }
-
     }
 })
 
