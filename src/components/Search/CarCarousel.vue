@@ -44,7 +44,7 @@
                                     <div class="row">
 
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <img src="http://www.experienceoxfordshire.org/wp-content/uploads/2017/02/6079-4.jpg">
                                         </div>
 

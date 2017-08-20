@@ -627,7 +627,7 @@ const store = new Vuex.Store({
 
             //recalculate prices in results
            state.carResults.forEach( (cr) => {
-              cr.convertedPrice = (cr.pricePerDay * 5 ) * state.currentRate;
+              cr.convertedPrice = cr.pricePerDay  * state.currentRate;
               cr.convertedPrice = cr.convertedPrice.toFixed(2);
            });
 
