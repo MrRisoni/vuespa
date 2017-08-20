@@ -50,7 +50,7 @@
 <style>
 
 
-    .HotelResults {
+    .FlightsResults {
         margin-top: 5%;
     }
 
