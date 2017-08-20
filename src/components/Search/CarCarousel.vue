@@ -1,8 +1,6 @@
 <template>
     <div class="CarCarousel">
 
-        <h1>{{ carData.length }}</h1>
-
         <div class="row">
             <div class="col-md-12">
 
@@ -13,19 +11,47 @@
                     <div class="row">
 
 
-                        <div class="col-md-2"> << </div>
-
-                        <div class="col-md-4">
-
-                            {{carData[index].name}}
+                        <div class="col-md-2">
 
 
-                            {{carData[index].convertedPrice}}
-
-                            {{getCurrency}}
+                            <button class="btn btn-primary btn-success"><< </button>
 
                         </div>
-                        <div class="col-md-2"> >> </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+
+                                <div class="col-md-5">
+                                    <img src="http://www.experienceoxfordshire.org/wp-content/uploads/2017/02/6079-4.jpg">
+                                </div>
+
+
+                                <div class="col-md-3">
+{{getCarName}}
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+
+                                    {{getCurrency}}
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-2">
+
+                            <button class="btn btn-primary btn-success"> >> </button>
+
+
+                        </div>
 
 
                     </div>
@@ -51,18 +77,19 @@
 
 <script>
     export default {
-        props: ['carData'],
-        data() {
-            return {
-                msg: 'Fill the data',
-                index: 0
-            }
-        },
         computed: {
             getCurrency() {
                 return this.$store.state.currency
+            },
+            getCarCarouselIndex() {
+                return this.$store.state.carIndex;
+            },
+            getCarName()
+            {
+                return this.$store.state.carResults[this.$store.state.carIndex].name;
             }
         }
+
     }
 </script>
 

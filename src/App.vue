@@ -36,9 +36,4 @@
         margin-top: 60px;
     }
 
-    img {
-        width: auto;
-        height: 75px;
-    }
-
 </style>

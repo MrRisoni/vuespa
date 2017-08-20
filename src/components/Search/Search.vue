@@ -46,8 +46,8 @@
 
             <div class="col-md-12">
 
-                <div v-if="carData.length>0">
-                    <carcarousel :carData="carData"></carcarousel>
+                <div v-if="carCarouselVisible">
+                    <carcarousel></carcarousel>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
         data() {
             return {
                 msg: '',
-                carData: []
+                carCarouselVisible: false
             }
         },
         methods: {
@@ -82,8 +82,9 @@
                 var self = this;
 
                 setTimeout(function () {
-                    self.carData = self.$store.state.carResults;
-                }, 4000);
+                    self.mgs = 'OK';
+                    self.carCarouselVisible = true;
+                }, 2000);
             }
         }
 
