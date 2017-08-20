@@ -126,9 +126,12 @@
                 var self = this;
 
                 setTimeout(function () {
-                    self.mgs = 'OK';
                     self.carResultsFetched = true;
-                    self.hotelResultsFetched = true;
+
+                    setTimeout(function () {
+                        self.mgs = 'OK';
+                        self.hotelResultsFetched = true;
+                    }, 3000);
                 }, 2000);
             }
         }
