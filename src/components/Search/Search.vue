@@ -57,6 +57,18 @@
                 <div class="row">
                     <div class="col-md-12">
 
+                        <div v-if="flightsResultsFetched">
+                            <flightsresults></flightsresults>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+
                         <div v-if="hotelResultsFetched">
                             <hotelresults></hotelresults>
                         </div>
@@ -107,18 +119,22 @@
     import NavBar from '../NavBar.vue';
     import CarCarousel from './CarCarousel.vue';
     import HotelResults from './Hotel/HotelResults.vue';
+    import FlightsResults from './Air/FlightsResults.vue';
+
 
     export default {
         components: {
             'navbar': NavBar,
             'carcarousel': CarCarousel,
-            'hotelresults': HotelResults
+            'hotelresults': HotelResults,
+            'flightsresults': FlightsResults
         },
         data() {
             return {
                 msg: '',
                 carResultsFetched: false,
                 hotelResultsFetched: false,
+                flightsResultsFetched: false
 
             }
         },
@@ -129,13 +145,18 @@
                 var self = this;
 
                 setTimeout(function () {
-                    self.carResultsFetched = true;
+                    self.flightsResultsFetched = true;
 
                     setTimeout(function () {
-                        self.mgs = 'OK';
                         self.hotelResultsFetched = true;
-                    }, 3000);
-                }, 2000);
+
+
+                        setTimeout(function () {
+                            self.mgs = 'OK';
+                            self.carResultsFetched = true;
+                        }, 1000);
+                    }, 2000);
+                }, 6000);
             }
         }
 
