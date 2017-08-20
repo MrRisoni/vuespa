@@ -3,15 +3,13 @@
 > Single Page Online Travel Agency Application
 
 inspired from kiwi.com
-(see otaspa for the React version)
+(see otaspa for the simplified React version)
 
 This version contains
 
 -Vuex (state management)
 
--better CSS layout 
-
--Bootstrap 4
+-better CSS layout Bootstrap 4
 
 - Hotel Car Flights combination in results (inspired from expedia.com )
 

@@ -8,6 +8,7 @@ import carResults from './dummyResults/carResults.json'
 const store = new Vuex.Store({
     state: {
         carResults : carResults,
+        carIndex: 0,
         currencyData: [
             {
                 trigram: 'EUR',
@@ -641,6 +642,18 @@ const store = new Vuex.Store({
                 }
 
             });
+        },
+        nextCar(state){
+            state.carIndex++;
+            if (state.carIndex === state.carResults.length) {
+                state.carIndex =0;
+            }
+        },
+        previousCar(state){
+            state.carIndex--;
+            if (state.carIndex < 0) {
+                state.carIndex =0;
+            }
         }
     }
 })

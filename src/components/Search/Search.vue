@@ -38,22 +38,62 @@
             </div>
 
 
+            <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
+
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                Filters
+            </div>
+
+            <div class="col-md-8">
+
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div v-if="hotelResultsFetched">
+                            <hotelresults></hotelresults>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div v-if="carResultsFetched">
+                            <carcarousel></carcarousel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
         <div class="row">
 
 
-            <div class="col-md-12">
-
-                <div v-if="carData.length>0">
-                    <carcarousel :carData="carData"></carcarousel>
-                </div>
+            <div class="col-md-4">
             </div>
+
+            <div class="col-md-8">
+
+                Bundle
+
+                <button class="btn btn-primary btn-success">Proceed to Booking </button>
+
+            </div>
+
         </div>
 
-
-        <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
 
     </div>
 </template>
@@ -63,16 +103,20 @@
 
     import NavBar from '../NavBar.vue';
     import CarCarousel from './CarCarousel.vue';
+    import HotelResults from './Hotel/HotelResults.vue';
 
     export default {
         components: {
             'navbar': NavBar,
-            'carcarousel': CarCarousel
+            'carcarousel': CarCarousel,
+            'hotelresults': HotelResults
         },
         data() {
             return {
                 msg: '',
-                carData: []
+                carResultsFetched: false,
+                hotelResultsFetched: false,
+
             }
         },
         methods: {
@@ -82,8 +126,13 @@
                 var self = this;
 
                 setTimeout(function () {
-                    self.carData = self.$store.state.carResults;
-                }, 4000);
+                    self.carResultsFetched = true;
+
+                    setTimeout(function () {
+                        self.mgs = 'OK';
+                        self.hotelResultsFetched = true;
+                    }, 3000);
+                }, 2000);
             }
         }
 
