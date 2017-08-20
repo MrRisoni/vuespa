@@ -110,7 +110,7 @@
                 // Carrier Fare Nums Price
                 let myState = this.$store.state;
 
-                let rate = myState.currencyRate;
+                let rate = myState.currentRate;
 
                 let fares = [];
 
@@ -149,7 +149,7 @@
                 let myState = this.$store.state;
                 let total = 0;
 
-                let rate = myState.currencyRate;
+                let rate = myState.currentRate;
 
 
                 myState.paxTypes.forEach((pax) => {
