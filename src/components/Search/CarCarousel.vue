@@ -6,35 +6,72 @@
 
 
                 <div class="card bg-light">
-                    <div class="card-header"> Select your car </div>
+                    <div class="card-header">
 
-                    <div class="row">
+                        <div class="row">
+
+                            <div class="col-md-5">
+
+                                Select your car
+                            </div>
 
 
-                        <div class="col-md-2">
-
-
-                            <button class="btn btn_next_prev btn-primary btn-success" @click="previousCar"> << </button>
+                            <div class="col-md-2">
+                                <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> {{label}} </button>
+                            </div>
 
                         </div>
 
-                        <div class="col-md-8">
+                    </div>
+
+                    <div v-if="showMe">
+                        <div class="card-body">
+
 
                             <div class="row">
 
 
-                                <div class="col-md-5">
-                                    <img src="http://www.experienceoxfordshire.org/wp-content/uploads/2017/02/6079-4.jpg">
-                                </div>
+                                <div class="col-md-2">
 
 
-                                <div class="col-md-3">
-                                    {{getCarName}}
+                                    <button class="btn btn_next_prev btn-primary btn-success" @click="previousCar"> <<
+                                    </button>
 
                                 </div>
 
+                                <div class="col-md-8">
+
+                                    <div class="row">
+
+
+                                        <div class="col-md-5">
+                                            <img src="http://www.experienceoxfordshire.org/wp-content/uploads/2017/02/6079-4.jpg">
+                                        </div>
+
+
+                                        <div class="col-md-3">
+                                            {{getCarName}}
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-2">
+
+                                    <button class="btn btn_next_prev btn-primary btn-success" @click="nextCar"> >>
+                                    </button>
+
+
+                                </div>
 
                             </div>
+
+                        </div>
+
+                        <div class="card-footer">
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -44,22 +81,13 @@
                                 </div>
                             </div>
 
-
                         </div>
-                        <div class="col-md-2">
-
-                            <button class="btn btn_next_prev btn-primary btn-success" @click="nextCar"> >> </button>
-
-
-                        </div>
-
 
                     </div>
                 </div>
 
             </div>
         </div>
-
 
 
     </div>
@@ -77,7 +105,7 @@
     }
 
     .CarCarousel img {
-        margin-top:  12%;
+        margin-top: 12%;
         height: 75%;
         width: auto;
     }
@@ -88,6 +116,12 @@
 
 <script>
     export default {
+        data() {
+            return {
+                showMe: true,
+                label: 'Hide'
+            }
+        },
         computed: {
             getCurrency() {
                 return this.$store.state.currency
@@ -101,13 +135,15 @@
             }
         },
         methods: {
-            nextCar()
-            {
+            nextCar() {
                 this.$store.commit('nextCar');
             },
-            previousCar()
-            {
+            previousCar() {
                 this.$store.commit('previousCar');
+            },
+            toggleMe() {
+                this.showMe = !this.showMe;
+                this.label = (this.showMe) ? 'Hide' : 'Show'
             }
         }
 

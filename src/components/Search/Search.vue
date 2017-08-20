@@ -38,6 +38,9 @@
             </div>
 
 
+            <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
+
+
         </div>
 
 
@@ -50,14 +53,47 @@
 
             <div class="col-md-8">
 
-                <div v-if="carCarouselVisible">
-                    <carcarousel></carcarousel>
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div v-if="hotelResultsFetched">
+                            <hotelresults></hotelresults>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div v-if="carResultsFetched">
+                            <carcarousel></carcarousel>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
 
-        <button class="btn btn-primary btn-success" @click="searchClicked">Search a bundle ticket</button>
+        <div class="row">
+
+
+            <div class="col-md-4">
+            </div>
+
+            <div class="col-md-8">
+
+                Bundle
+
+                <button class="btn btn-primary btn-success">Proceed to Booking </button>
+
+            </div>
+
+        </div>
+
 
     </div>
 </template>
@@ -67,16 +103,20 @@
 
     import NavBar from '../NavBar.vue';
     import CarCarousel from './CarCarousel.vue';
+    import HotelResults from './Hotel/HotelResults.vue';
 
     export default {
         components: {
             'navbar': NavBar,
-            'carcarousel': CarCarousel
+            'carcarousel': CarCarousel,
+            'hotelresults': HotelResults
         },
         data() {
             return {
                 msg: '',
-                carCarouselVisible: false
+                carResultsFetched: false,
+                hotelResultsFetched: false,
+
             }
         },
         methods: {
@@ -87,7 +127,8 @@
 
                 setTimeout(function () {
                     self.mgs = 'OK';
-                    self.carCarouselVisible = true;
+                    self.carResultsFetched = true;
+                    self.hotelResultsFetched = true;
                 }, 2000);
             }
         }
