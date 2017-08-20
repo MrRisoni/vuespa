@@ -14,7 +14,7 @@
                         <div class="col-md-2">
 
 
-                            <button class="btn btn-primary btn-success"><< </button>
+                            <button class="btn btn_next_prev btn-primary btn-success" @click="previousCar"> << </button>
 
                         </div>
 
@@ -29,7 +29,7 @@
 
 
                                 <div class="col-md-3">
-{{getCarName}}
+                                    {{getCarName}}
 
                                 </div>
 
@@ -38,7 +38,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-
+                                    {{getPrice}}
 
                                     {{getCurrency}}
                                 </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-2">
 
-                            <button class="btn btn-primary btn-success"> >> </button>
+                            <button class="btn btn_next_prev btn-primary btn-success" @click="nextCar"> >> </button>
 
 
                         </div>
@@ -61,7 +61,6 @@
         </div>
 
 
-        <button class="btn btn-primary btn-success">Go</button>
 
     </div>
 </template>
@@ -70,7 +69,19 @@
 
     .CarCarousel {
         margin-top: 5%;
+        margin-bottom: 2%;
     }
+
+    .CarCarousel .btn_next_prev {
+        margin-top: 55%;
+    }
+
+    .CarCarousel img {
+        margin-top:  12%;
+        height: 75%;
+        width: auto;
+    }
+
 
 </style>
 
@@ -81,12 +92,22 @@
             getCurrency() {
                 return this.$store.state.currency
             },
-            getCarCarouselIndex() {
-                return this.$store.state.carIndex;
+            getPrice() {
+                let price = 5 * this.$store.state.carResults[this.$store.state.carIndex].convertedPrice;
+                return price.toFixed(2);
             },
-            getCarName()
-            {
+            getCarName() {
                 return this.$store.state.carResults[this.$store.state.carIndex].name;
+            }
+        },
+        methods: {
+            nextCar()
+            {
+                this.$store.commit('nextCar');
+            },
+            previousCar()
+            {
+                this.$store.commit('previousCar');
             }
         }
 
