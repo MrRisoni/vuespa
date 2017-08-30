@@ -38,14 +38,6 @@
                                 <hr>
 
 
-                                <div v-for="data in getUpgradeFare">
-
-                                    <div v-if="data.count >0 ">
-                                        {{data.carrier}} {{data.fareName}} {{data.price}}  x {{data.count}}
-                                    </div>
-                                </div>
-
-
                             </div>
                         </div>
 
@@ -56,6 +48,19 @@
 
                                 <h3> Total Price : {{getTotalPrice}} {{getCurrency}} </h3>
 
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select v-model="selectedCurrency" @change="changeCurrency" class="form-control">
+                                    <option v-for="option in getCurrencies" v-bind:value="option.trigram">
+                                        {{ option.trigram }}
+                                    </option>
+                                </select>
                             </div>
                         </div>
 
@@ -83,9 +88,6 @@
 
     }
 
-
-
-
     .analysisCategory {
         color: yellow;
     }
@@ -97,54 +99,22 @@
 
 
     export default {
-
+        data() {
+            return {
+                selectedCurrency: ''
+            }
+        },
         computed: {
             appState() {
                 return this.$store.state
             },
+            getCurrencies() {
+                return this.$store.state.currencyData
+            },
             getCurrency() {
                 return this.$store.state.currency
             },
-            getUpgradeFare() {
-                // return an array
-                // Carrier Fare Nums Price
-                let myState = this.$store.state;
 
-                let rate = myState.currentRate;
-
-                let fares = [];
-
-
-                myState.upgradeFare.forEach((carrier) => {
-                    carrier.options.forEach((opt) => {
-
-                        opt.convertedPrice = (opt.price * rate).toFixed(2);
-
-                        let newOption = {
-                            carrier: carrier.carrier,
-                            fareName: opt.name,
-                            price: opt.convertedPrice,
-                            count: 0
-                        }
-
-                        fares.push(newOption);
-                    });
-                });
-
-                fares.forEach((fare) => {
-                    myState.passengers.forEach((px) => {
-                        px.upgradeFare.forEach((fr) => {
-
-                            if (fr.airline === fare.carrier && fr.option === fare.fareName) {
-                                fare.count++
-                            }
-                        });
-                    });
-                });
-
-                return fares
-
-            },
             getTotalPrice() {
                 let myState = this.$store.state;
                 let total = 0;
@@ -159,44 +129,23 @@
                     }
                 });
 
-                // upsales
+                // upales
 
 
-                let fares = [];
-
-
-                myState.upgradeFare.forEach((carrier) => {
-                    carrier.options.forEach((opt) => {
-
-                        opt.convertedPrice = (opt.price * rate).toFixed(2);
-
-                        let newOption = {
-                            carrier: carrier.carrier,
-                            fareName: opt.name,
-                            price: opt.convertedPrice,
-                        }
-
-                        fares.push(newOption);
-                    });
-                });
-
-                fares.forEach((fare) => {
-                    myState.passengers.forEach((px) => {
-                        px.upgradeFare.forEach((fr) => {
-
-                            if (fr.airline === fare.carrier && fr.option === fare.fareName) {
-                                total += parseFloat(fare.price);
-                            }
-                        });
-                    });
-                });
-
+                // bags
 
                 total = total.toFixed(2);
 
                 return total;
             }
 
+        },
+        methods: {
+            changeCurrency(currency) {
+                console.log('Navbar Component', this.selectedCurrency);
+                this.$store.commit('changeCurrency', this.selectedCurrency);
+
+            }
         }
     }
 </script>

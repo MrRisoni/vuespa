@@ -238,14 +238,14 @@ const store = new Vuex.Store({
                 key: 'yN55XxTVMcil',
                 title: '119 × 119 × 81 cm, 23 kg',
                 price: 12,
-                convertedPrice: 0
+                convertedPrice: 12
             },
                 {
                     id: 2,
                     key: '5IZ9wcvsCk7M',
                     title: '25KG',
                     price: 35,
-                    convertedPrice: 0
+                    convertedPrice: 35
                 }
             ]
         },
@@ -257,14 +257,14 @@ const store = new Vuex.Store({
                     key: '6WrQenE5YDx8',
                     title: '12KG',
                     price: 12,
-                    convertedPrice: 0
+                    convertedPrice: 12
                 },
                     {
                         id: 2,
                         key: '3gYBemf65x2E',
                         title: '25KG',
                         price: 18,
-                        convertedPrice: 0
+                        convertedPrice: 18
                     }
                 ]
             },
@@ -276,14 +276,14 @@ const store = new Vuex.Store({
                     title: '22KG',
                     key: 'KzV68IqmoSTs',
                     price: 15,
-                    convertedPrice: 0
+                    convertedPrice: 15
                 },
                     {
                         id: 2,
                         key: 'M77kWAtZjDAS',
                         title: '30KG',
                         price: 45,
-                        convertedPrice: 0
+                        convertedPrice: 45
                     }
                 ]
             }
@@ -608,22 +608,71 @@ const store = new Vuex.Store({
 
             state.paxTypes[0].count++;
         },
-        addBaggage(state, passengerid) {
+        addBaggage(state, args) {
 
-            {passengerid: this.passengerid,
-                key : this.bag.key,
-                leg: this.leg});
+               let added_bag_type = {count: 1, carrier: args.carrier,
+                                title:'',price: 0,id:0,
+                                key: args.key};
 
-            let newbag = {
-                carrier: 'FR',
-                title: '119 × 119 × 81 cm, 23 kg'
+
+
+            let maxNumber = 0;
+
+            state.bagAllowance.forEach((bgl) => {
+
+                if (bgl.carrier === added_bag_type.carrier) {
+
+                    maxNumber = bgl.maxBags;
+
+                    bgl.bags.forEach((bg) => {
+                        // console.log(bg);
+                        if (bg.key === args.key) {
+                            added_bag_type.title = bg.title;
+                            added_bag_type.id = id.key;
+                            added_bag_type.price = parseFloat(bg.convertedPrice).toFixed(2);
+                        }
+                    });
+                }
+            });
+
+
+            // count the number of bags for this specific carrier
+
+            let current_count =0;
+            state.passengers[args.passengerid].bags[args.leg].types.forEach( (bag, idx) => {
+                if (bag.carrier === args.carrier) {
+                    current_count = bag.count;
+                }
+            });
+
+            if (current_count < maxNumber) {
+
+                let pos = -1;
+                state.passengers[args.passengerid].bags[args.leg].types.forEach((bag, idx) => {
+                    if (bag.key === added_bag_type.key) {
+                        pos = idx;
+                    }
+                });
+
+                if (pos < 0) {
+                    // first time passenger buys this type
+                    state.passengers[args.passengerid].bags[args.leg].types.push(added_bag_type);
+                    state.passengers[args.passengerid].totalBags++;
+                }
+                else {
+                    state.passengers[args.passengerid].bags[args.leg].types[pos].count++;
+                }
             }
+            /*
+            else {
+                //reached maximum number of allowed bags for this leg
+            }*/
 
-            console.log('store.js addBaggage');
-            console.log(passengerid);
+            console.log(state.passengers[args.passengerid].bags);
 
-            console.log(newbag)
-            state.passengers[passengerid - 1].bags[0].types.push(newbag);
+
+
+
         },
         changePaxType(state, args) {
             console.log('changePaxType');
@@ -654,6 +703,22 @@ const store = new Vuex.Store({
            state.carResults.forEach( (cr) => {
               cr.convertedPrice = cr.pricePerDay  * state.currentRate;
               cr.convertedPrice = cr.convertedPrice.toFixed(2);
+           });
+
+           state.bagAllowance.forEach( (carrier) => {
+
+               carrier.bags.forEach( (bg) => {
+                  bg.convertedPrice = bg.price *  state.currentRate;
+                  bg.convertedPrice = bg.convertedPrice.toFixed(2);
+               });
+           });
+
+           state.upgradeFare.forEach( (carrier) => {
+              carrier.options.forEach( (opt) => {
+                    opt.convertedPrice = opt.price* state.currentRate;
+
+                    opt.convertedPrice = opt.convertedPrice.toFixed(2);
+              });
            });
 
         },
