@@ -101,6 +101,7 @@ const store = new Vuex.Store({
         passengers: [{
             id: 1,
             type: 'ADT',
+            active: true,
             upgradeFare: [
                 {
                     airline: 'FR',
@@ -129,6 +130,7 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 type: 'ADT',
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -157,6 +159,7 @@ const store = new Vuex.Store({
             {
                 id: 3,
                 type: 'CNN',
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -190,12 +193,16 @@ const store = new Vuex.Store({
         upsales: [{
             id: 1,
             title: 'SMS',
-            price: 1.5
+            price: 1.5,
+            convertedPrice: 0
+
         },
             {
                 id: 2,
                 title: 'Web check-in',
-                price: 3
+                price: 3,
+                convertedPrice: 0
+
             }
         ],
         insuranceInfo: [{
@@ -228,13 +235,17 @@ const store = new Vuex.Store({
             maxBags: 3,
             bags: [{
                 id: 1,
+                key: 'yN55XxTVMcil',
                 title: '119 × 119 × 81 cm, 23 kg',
-                price: 12
+                price: 12,
+                convertedPrice: 0
             },
                 {
                     id: 2,
+                    key: '5IZ9wcvsCk7M',
                     title: '25KG',
-                    price: 35
+                    price: 35,
+                    convertedPrice: 0
                 }
             ]
         },
@@ -243,13 +254,17 @@ const store = new Vuex.Store({
                 maxBags: 2,
                 bags: [{
                     id: 1,
+                    key: '6WrQenE5YDx8',
                     title: '12KG',
-                    price: 12
+                    price: 12,
+                    convertedPrice: 0
                 },
                     {
                         id: 2,
+                        key: '3gYBemf65x2E',
                         title: '25KG',
-                        price: 18
+                        price: 18,
+                        convertedPrice: 0
                     }
                 ]
             },
@@ -259,12 +274,16 @@ const store = new Vuex.Store({
                 bags: [{
                     id: 1,
                     title: '22KG',
-                    price: 15
+                    key: 'KzV68IqmoSTs',
+                    price: 15,
+                    convertedPrice: 0
                 },
                     {
                         id: 2,
+                        key: 'M77kWAtZjDAS',
                         title: '30KG',
-                        price: 45
+                        price: 45,
+                        convertedPrice: 0
                     }
                 ]
             }
@@ -558,6 +577,7 @@ const store = new Vuex.Store({
             let new_pap = {
                 id: papCount,
                 type: 'ADT',
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -589,6 +609,11 @@ const store = new Vuex.Store({
             state.paxTypes[0].count++;
         },
         addBaggage(state, passengerid) {
+
+            {passengerid: this.passengerid,
+                key : this.bag.key,
+                leg: this.leg});
+
             let newbag = {
                 carrier: 'FR',
                 title: '119 × 119 × 81 cm, 23 kg'
