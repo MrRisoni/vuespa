@@ -71,7 +71,7 @@
         props: ['passengerid'],
         data() {
             return {
-                showMe: true,
+                showMe: false,
                 label: 'Hide'
             }
         },

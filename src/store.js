@@ -100,6 +100,7 @@ const store = new Vuex.Store({
         ],
         passengers: [{
             id: 1,
+            humanID:1,
             type: 'ADT',
             active: true,
             upgradeFare: [
@@ -129,6 +130,7 @@ const store = new Vuex.Store({
         },
             {
                 id: 2,
+                humanID:2,
                 type: 'ADT',
                 active: true,
                 upgradeFare: [
@@ -158,6 +160,7 @@ const store = new Vuex.Store({
             },
             {
                 id: 3,
+                humanID:3,
                 type: 'CNN',
                 active: true,
                 upgradeFare: [
@@ -577,6 +580,7 @@ const store = new Vuex.Store({
             let new_pap = {
                 id: papCount,
                 type: 'ADT',
+                humanID: papCount,
                 active: true,
                 upgradeFare: [
                     {
@@ -611,11 +615,15 @@ const store = new Vuex.Store({
         addBaggage(state, args) {
 
                let added_bag_type = {count: 1, carrier: args.carrier,
-                                title:'',price: 0,id:0,
+                                title:'',
+                                price: 0,
+                                id:0,
+                                leg:args.leg,
                                 key: args.key};
 
 
-
+           console.log('arguments');
+           console.log(args);
             let maxNumber = 0;
 
             state.bagAllowance.forEach((bgl) => {
@@ -628,7 +636,7 @@ const store = new Vuex.Store({
                         // console.log(bg);
                         if (bg.key === args.key) {
                             added_bag_type.title = bg.title;
-                            added_bag_type.id = id.key;
+                            added_bag_type.key = bg.key;
                             added_bag_type.price = parseFloat(bg.convertedPrice).toFixed(2);
                         }
                     });
@@ -639,12 +647,13 @@ const store = new Vuex.Store({
             // count the number of bags for this specific carrier
 
             let current_count =0;
-            state.passengers[args.passengerid].bags[args.leg].types.forEach( (bag, idx) => {
+            state.passengers[args.passengerid].bags[args.leg].types.forEach( (bag) => {
                 if (bag.carrier === args.carrier) {
                     current_count = bag.count;
                 }
             });
 
+            console.log('currenct-count' + current_count + ' max number' + maxNumber);
             if (current_count < maxNumber) {
 
                 let pos = -1;
@@ -657,7 +666,6 @@ const store = new Vuex.Store({
                 if (pos < 0) {
                     // first time passenger buys this type
                     state.passengers[args.passengerid].bags[args.leg].types.push(added_bag_type);
-                    state.passengers[args.passengerid].totalBags++;
                 }
                 else {
                     state.passengers[args.passengerid].bags[args.leg].types[pos].count++;
@@ -669,7 +677,14 @@ const store = new Vuex.Store({
             }*/
 
             console.log(state.passengers[args.passengerid].bags);
+            console.log('bags of passenger ' + args.passengerid);
 
+            state.passengers[args.passengerid].bags.forEach( (leg) => {
+                console.log(leg);
+                leg.types.forEach( (bag) => {
+                    console.log(bag);
+                })
+            });
 
 
 

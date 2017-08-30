@@ -15,7 +15,7 @@
     import Icon from 'vue-awesome/components/Icon'
 
     export default {
-        props: ['bag' ,'passengerid' ,'leg'],
+        props: ['bag' ,'passengerid' ,'leg', 'airline'],
         components: {
             'VueAwesome': Icon
         },
@@ -29,7 +29,7 @@
                 this.$store.commit('addBaggage', {passengerid: this.passengerid,
                                                     key : this.bag.key,
                                                     leg: this.leg,
-                                                    carrier: this.bag.airline  });
+                                                    carrier: this.airline  });
             }
         }
     }

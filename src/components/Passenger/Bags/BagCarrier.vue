@@ -11,6 +11,7 @@
 
                     <selectbag :bag="bag"
                                :leg="leg"
+                               :airline="airline.carrier"
                                :passengerid="passengerid"></selectbag>
 
                 </div>

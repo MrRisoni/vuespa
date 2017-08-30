@@ -109,8 +109,8 @@
         },
         data() {
             return {
-                toggleButton: 'Hide',
-                showMe: true,
+                toggleButton: 'Show',
+                showMe: false,
                 selectedFare: ''
             }
         },

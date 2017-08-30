@@ -133,9 +133,14 @@
 
 
                 // bags
-                myState.passengers.bags.forEach( (bg) => {
-
-                   total+= (bg.price * bg.count);
+                myState.passengers.forEach((pap) => {
+                    if (pap.active) {
+                        pap.bags.forEach((legs) => {
+                            legs.types.forEach((bag) => {
+                                total += (bag.price * bag.count);
+                            });
+                        });
+                    }
                 });
 
                 total = total.toFixed(2);
