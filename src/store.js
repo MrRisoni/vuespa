@@ -689,6 +689,19 @@ const store = new Vuex.Store({
 
 
         },
+        removeBag(state,args) {
+
+            state.passengers[args.passengerid].bags[args.leg].types.forEach((bgl) => {
+
+                if (bgl.key === args.key) {
+                    bgl.count--;
+                    if (bgl.count < 0) {
+                        bgl.count = 0;
+                    }
+                }
+
+            });
+        },
         changePaxType(state, args) {
             console.log('changePaxType');
             console.log(args);

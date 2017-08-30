@@ -174,9 +174,9 @@
                         setTimeout(function () {
                             self.msg = 'OK';
                             self.carResultsFetched = true;
-                        }, 1000);
-                    }, 2000);
-                }, 6000);
+                        }, 900);
+                    }, 1000);
+                }, 3000);
             }
         }
 

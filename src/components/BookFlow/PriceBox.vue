@@ -34,15 +34,15 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <h4 class="analysisCategory">Upsales</h4>
-                                <hr>
-
+                                <h4 class="analysisCategory">Bags</h4>
 
                             </div>
                         </div>
 
 
-                        <br>
+
+
+                        <hr>
                         <div class="row">
                             <div class="col-md-12">
 

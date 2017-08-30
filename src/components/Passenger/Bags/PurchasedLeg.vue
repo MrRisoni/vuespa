@@ -9,18 +9,25 @@
 
                 <div class="card-body">
 
-                    <div v-for="bag in boughtBags">
+                    <div v-if="boughtBags.length >0">
 
-                        <div class="row">
 
-                            <div class="col-md-10">
+                        <div v-for="bag in boughtBags">
 
-                                <button type="button" class="btn mybtn btn-danger" @click="">
-                                    -
-                                </button> {{bag.count}} x {{bag.title}}  {{bag.carrier}} {{bag.convertedPrice}}
+                            <div v-if="bag.count >0">
 
+                                <div class="row">
+
+                                    <div class="col-md-10">
+
+                                        <bagremoval :bag="bag"
+                                                    :passengerid="passengerid"
+                                                    :leg="leg"></bagremoval>
+
+                                    </div>
+
+                                </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -41,7 +48,14 @@
 </style>
 
 <script>
+
+    import BagRemoval from './BagRemoval.vue';
+
+
     export default {
+        components: {
+            'bagremoval': BagRemoval
+        },
         props: ['route', 'passengerid', 'leg'],
         data() {
             return {}
