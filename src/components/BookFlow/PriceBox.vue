@@ -133,6 +133,10 @@
 
 
                 // bags
+                myState.passengers.bags.forEach( (bg) => {
+
+                   total+= (bg.price * bg.count);
+                });
 
                 total = total.toFixed(2);
 
