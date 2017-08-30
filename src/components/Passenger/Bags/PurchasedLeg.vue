@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                    <div v-for="bag in boughtBagsDepart">
+                    <div v-for="bag in boughtBags">
 
                         <div class="row">
 
@@ -17,7 +17,7 @@
 
                                 <button type="button" class="btn mybtn btn-danger" @click="">
                                     -
-                                </button> {{bag.title}}  {{bag.carrier}}
+                                </button> {{bag.count}} x {{bag.title}}  {{bag.carrier}} {{bag.convertedPrice}}
 
                             </div>
 
@@ -42,13 +42,13 @@
 
 <script>
     export default {
-        props: ['route', 'passengerid'],
+        props: ['route', 'passengerid', 'leg'],
         data() {
             return {}
         },
         computed: {
-            boughtBagsDepart() {
-                return this.$store.state.passengers[this.passengerid - 1].bags[0].types;
+            boughtBags() {
+                return this.$store.state.passengers[this.passengerid].bags[this.leg].types;
             }
         }
     }

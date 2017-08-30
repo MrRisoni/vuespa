@@ -679,10 +679,10 @@ const store = new Vuex.Store({
             console.log(state.passengers[args.passengerid].bags);
             console.log('bags of passenger ' + args.passengerid);
 
+            let much = 0;
             state.passengers[args.passengerid].bags.forEach( (leg) => {
-                console.log(leg);
                 leg.types.forEach( (bag) => {
-                    console.log(bag);
+                    much+= bag.count;
                 })
             });
 

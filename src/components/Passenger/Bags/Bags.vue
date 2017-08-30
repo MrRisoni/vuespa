@@ -46,10 +46,12 @@
                     <div class="row">
 
                         <purchasedleg :route="departRoute"
+                                      :leg="0"
                                       :passengerid="passengerid"></purchasedleg>
 
 
                         <purchasedleg :route="returnRoute"
+                                      :leg="1"
                                       :passengerid="passengerid"></purchasedleg>
 
 
