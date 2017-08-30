@@ -100,7 +100,9 @@ const store = new Vuex.Store({
         ],
         passengers: [{
             id: 1,
+            humanID:1,
             type: 'ADT',
+            active: true,
             upgradeFare: [
                 {
                     airline: 'FR',
@@ -128,7 +130,9 @@ const store = new Vuex.Store({
         },
             {
                 id: 2,
+                humanID:2,
                 type: 'ADT',
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -156,7 +160,9 @@ const store = new Vuex.Store({
             },
             {
                 id: 3,
+                humanID:3,
                 type: 'CNN',
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -190,12 +196,16 @@ const store = new Vuex.Store({
         upsales: [{
             id: 1,
             title: 'SMS',
-            price: 1.5
+            price: 1.5,
+            convertedPrice: 0
+
         },
             {
                 id: 2,
                 title: 'Web check-in',
-                price: 3
+                price: 3,
+                convertedPrice: 0
+
             }
         ],
         insuranceInfo: [{
@@ -228,13 +238,17 @@ const store = new Vuex.Store({
             maxBags: 3,
             bags: [{
                 id: 1,
+                key: 'yN55XxTVMcil',
                 title: '119 × 119 × 81 cm, 23 kg',
-                price: 12
+                price: 12,
+                convertedPrice: 12
             },
                 {
                     id: 2,
+                    key: '5IZ9wcvsCk7M',
                     title: '25KG',
-                    price: 35
+                    price: 35,
+                    convertedPrice: 35
                 }
             ]
         },
@@ -243,13 +257,17 @@ const store = new Vuex.Store({
                 maxBags: 2,
                 bags: [{
                     id: 1,
+                    key: '6WrQenE5YDx8',
                     title: '12KG',
-                    price: 12
+                    price: 12,
+                    convertedPrice: 12
                 },
                     {
                         id: 2,
+                        key: '3gYBemf65x2E',
                         title: '25KG',
-                        price: 18
+                        price: 18,
+                        convertedPrice: 18
                     }
                 ]
             },
@@ -259,12 +277,16 @@ const store = new Vuex.Store({
                 bags: [{
                     id: 1,
                     title: '22KG',
-                    price: 15
+                    key: 'KzV68IqmoSTs',
+                    price: 15,
+                    convertedPrice: 15
                 },
                     {
                         id: 2,
+                        key: 'M77kWAtZjDAS',
                         title: '30KG',
-                        price: 45
+                        price: 45,
+                        convertedPrice: 45
                     }
                 ]
             }
@@ -558,6 +580,8 @@ const store = new Vuex.Store({
             let new_pap = {
                 id: papCount,
                 type: 'ADT',
+                humanID: papCount,
+                active: true,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -588,17 +612,95 @@ const store = new Vuex.Store({
 
             state.paxTypes[0].count++;
         },
-        addBaggage(state, passengerid) {
-            let newbag = {
-                carrier: 'FR',
-                title: '119 × 119 × 81 cm, 23 kg'
+        addBaggage(state, args) {
+
+               let added_bag_type = {count: 1, carrier: args.carrier,
+                                title:'',
+                                price: 0,
+                                id:0,
+                                leg:args.leg,
+                                key: args.key};
+
+
+           console.log('arguments');
+           console.log(args);
+            let maxNumber = 0;
+
+            state.bagAllowance.forEach((bgl) => {
+
+                if (bgl.carrier === added_bag_type.carrier) {
+
+                    maxNumber = bgl.maxBags;
+
+                    bgl.bags.forEach((bg) => {
+                        // console.log(bg);
+                        if (bg.key === args.key) {
+                            added_bag_type.title = bg.title;
+                            added_bag_type.key = bg.key;
+                            added_bag_type.price = parseFloat(bg.convertedPrice).toFixed(2);
+                        }
+                    });
+                }
+            });
+
+
+            // count the number of bags for this specific carrier
+
+            let current_count =0;
+            state.passengers[args.passengerid].bags[args.leg].types.forEach( (bag) => {
+                if (bag.carrier === args.carrier) {
+                    current_count = bag.count;
+                }
+            });
+
+            console.log('currenct-count' + current_count + ' max number' + maxNumber);
+            if (current_count < maxNumber) {
+
+                let pos = -1;
+                state.passengers[args.passengerid].bags[args.leg].types.forEach((bag, idx) => {
+                    if (bag.key === added_bag_type.key) {
+                        pos = idx;
+                    }
+                });
+
+                if (pos < 0) {
+                    // first time passenger buys this type
+                    state.passengers[args.passengerid].bags[args.leg].types.push(added_bag_type);
+                }
+                else {
+                    state.passengers[args.passengerid].bags[args.leg].types[pos].count++;
+                }
             }
+            /*
+            else {
+                //reached maximum number of allowed bags for this leg
+            }*/
 
-            console.log('store.js addBaggage');
-            console.log(passengerid);
+            console.log(state.passengers[args.passengerid].bags);
+            console.log('bags of passenger ' + args.passengerid);
 
-            console.log(newbag)
-            state.passengers[passengerid - 1].bags[0].types.push(newbag);
+            let much = 0;
+            state.passengers[args.passengerid].bags.forEach( (leg) => {
+                leg.types.forEach( (bag) => {
+                    much+= bag.count;
+                })
+            });
+
+
+
+        },
+        removeBag(state,args) {
+
+            state.passengers[args.passengerid].bags[args.leg].types.forEach((bgl) => {
+
+                if (bgl.key === args.key) {
+                    bgl.count--;
+                    if (bgl.count < 0) {
+                        bgl.count = 0;
+                    }
+                }
+
+            });
         },
         changePaxType(state, args) {
             console.log('changePaxType');
@@ -627,8 +729,24 @@ const store = new Vuex.Store({
 
             //recalculate prices in results
            state.carResults.forEach( (cr) => {
-              cr.convertedPrice = (cr.pricePerDay * 5 ) * state.currentRate;
+              cr.convertedPrice = cr.pricePerDay  * state.currentRate;
               cr.convertedPrice = cr.convertedPrice.toFixed(2);
+           });
+
+           state.bagAllowance.forEach( (carrier) => {
+
+               carrier.bags.forEach( (bg) => {
+                  bg.convertedPrice = bg.price *  state.currentRate;
+                  bg.convertedPrice = bg.convertedPrice.toFixed(2);
+               });
+           });
+
+           state.upgradeFare.forEach( (carrier) => {
+              carrier.options.forEach( (opt) => {
+                    opt.convertedPrice = opt.price* state.currentRate;
+
+                    opt.convertedPrice = opt.convertedPrice.toFixed(2);
+              });
            });
 
         },

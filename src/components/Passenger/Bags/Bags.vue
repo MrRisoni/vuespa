@@ -29,12 +29,14 @@
 
                         <bagleg :route="departRoute"
                                 :legCarriers="outboundCarriers"
+                                :leg="0"
                                 :passengerid="passengerid"
                         ></bagleg>
 
 
                         <bagleg :route="returnRoute"
                                 :legCarriers="inboundCarriers"
+                                :leg="1"
                                 :passengerid="passengerid"
                         ></bagleg>
 
@@ -44,10 +46,12 @@
                     <div class="row">
 
                         <purchasedleg :route="departRoute"
+                                      :leg="0"
                                       :passengerid="passengerid"></purchasedleg>
 
 
                         <purchasedleg :route="returnRoute"
+                                      :leg="1"
                                       :passengerid="passengerid"></purchasedleg>
 
 

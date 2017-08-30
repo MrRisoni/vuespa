@@ -77,8 +77,8 @@
         },
         data() {
             return {
-                showMe: true,
-                label: 'Hide'
+                showMe: false,
+                label: 'Show'
             }
         },
         computed: {

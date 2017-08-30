@@ -11,14 +11,15 @@
                         <div class="row">
 
                             <div class="col-md-5">
-
-                                Select your car
+                                Pick your car
                             </div>
 
+                            <div class="col-md-5"></div> <!-- offset does not work -->
 
                             <div class="col-md-2">
                                 <button class="btn btn-sm btn-dark btn-block" @click="toggleMe"> {{label}} </button>
                             </div>
+
 
                         </div>
 
@@ -44,7 +45,7 @@
                                     <div class="row">
 
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <img src="http://www.experienceoxfordshire.org/wp-content/uploads/2017/02/6079-4.jpg">
                                         </div>
 

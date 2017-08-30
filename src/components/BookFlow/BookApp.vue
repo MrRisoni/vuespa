@@ -2,8 +2,6 @@
 
 
     <div class="bookapp">
-        <navbar></navbar>
-
 
         <div class="row">
 
@@ -43,8 +41,6 @@
     import Pay from './Pay.vue'
     import PassengerList from './PassengerList.vue'
 
-    import Navbar from '../NavBar.vue'
-
 
     export default {
         components: {
@@ -53,7 +49,6 @@
             'itinerary': Itinerary,
             'contactdetails': Contact,
             'paymentdetails': Pay,
-            'navbar' : Navbar
         },
         data() {
             return {}

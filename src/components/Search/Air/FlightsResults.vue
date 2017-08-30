@@ -1,5 +1,5 @@
 <template>
-    <div class="HotelResults">
+    <div class="FlightsResults">
 
         <div class="card bg-light">
             <div class="card-header">
@@ -7,7 +7,7 @@
                 <div class="row">
 
                     <div class="col-md-5">
-                        Pick your hotel
+                        Pick your flight
                     </div>
 
                     <div class="col-md-5"></div> <!-- offset does not work -->
@@ -50,7 +50,7 @@
 <style>
 
 
-    .HotelResults {
+    .FlightsResults {
         margin-top: 5%;
     }
 

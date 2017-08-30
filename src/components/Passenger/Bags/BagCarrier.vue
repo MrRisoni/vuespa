@@ -9,14 +9,11 @@
 
                 <div v-for="bag of airline.bags">
 
+                    <selectbag :bag="bag"
+                               :leg="leg"
+                               :airline="airline.carrier"
+                               :passengerid="passengerid"></selectbag>
 
-                    <button type="button" class="btn mybtn btn-primary" @click="clickAddLuggage">
-                        +
-                    </button>
-
-
-
-                    {{bag.title}} {{bag.price}}
                 </div>
 
             </div>
@@ -44,26 +41,19 @@
 
 <script>
 
-    import 'vue-awesome/icons'
-    import Icon from 'vue-awesome/components/Icon'
+
+    import SelectBag from './SelectBag.vue';
+
 
     export default {
-        props: ['airline' ,'passengerid'],
+        props: ['airline' ,'passengerid', 'leg'],
         components: {
-            'VueAwesome': Icon
+            'selectbag': SelectBag
         },
         data() {
-            return {
-
-            }
-        },
-        methods: {
-            clickAddLuggage(passengerid)
-            {
-                console.log('Bag Carrier Compo ' + this.passengerid);
-                this.$store.commit('addBaggage', this.passengerid);
-            }
+            return {}
         }
+
     }
 </script>
 

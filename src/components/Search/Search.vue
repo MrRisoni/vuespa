@@ -48,6 +48,7 @@
 
             <div class="col-md-4">
 
+
                 Filters
             </div>
 
@@ -55,10 +56,33 @@
 
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
+
+
+                        <div v-if="flightsResultsFetched">
+                            <flightsresults></flightsresults>
+                        </div>
+                        <div v-else>
+                            <div v-if="searchBtnClicked">
+                                <VueAwesome name="spinner" scale="4" spin></VueAwesome>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
 
                         <div v-if="hotelResultsFetched">
                             <hotelresults></hotelresults>
+                        </div>
+                        <div v-else>
+                            <div v-if="searchBtnClicked">
+                                <VueAwesome name="spinner" scale="4" spin></VueAwesome>
+                            </div>
                         </div>
                     </div>
 
@@ -66,10 +90,15 @@
 
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
 
                         <div v-if="carResultsFetched">
                             <carcarousel></carcarousel>
+                        </div>
+                        <div v-else>
+                            <div v-if="searchBtnClicked">
+                                <VueAwesome name="spinner" scale="4" spin></VueAwesome>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,35 +133,50 @@
     import NavBar from '../NavBar.vue';
     import CarCarousel from './CarCarousel.vue';
     import HotelResults from './Hotel/HotelResults.vue';
+    import FlightsResults from './Air/FlightsResults.vue';
+
+
+    import 'vue-awesome/icons'
+    import Icon from 'vue-awesome/components/Icon'
 
     export default {
         components: {
             'navbar': NavBar,
             'carcarousel': CarCarousel,
-            'hotelresults': HotelResults
+            'hotelresults': HotelResults,
+            'flightsresults': FlightsResults,
+            'VueAwesome': Icon
+
         },
         data() {
             return {
                 msg: '',
                 carResultsFetched: false,
                 hotelResultsFetched: false,
+                flightsResultsFetched: false,
+                searchBtnClicked: false
 
             }
         },
         methods: {
             searchClicked() {
                 this.msg = ' Searching...';
-
+                this.searchBtnClicked = true;
                 var self = this;
 
                 setTimeout(function () {
-                    self.carResultsFetched = true;
+                    self.flightsResultsFetched = true;
 
                     setTimeout(function () {
-                        self.mgs = 'OK';
                         self.hotelResultsFetched = true;
-                    }, 3000);
-                }, 2000);
+
+
+                        setTimeout(function () {
+                            self.msg = 'OK';
+                            self.carResultsFetched = true;
+                        }, 900);
+                    }, 1000);
+                }, 3000);
             }
         }
 
