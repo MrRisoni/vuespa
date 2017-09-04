@@ -39,6 +39,11 @@
                             </div>
                         </div>
 
+                        <div v-for="pap in appState.passengers">
+                           {{pap.totalBags}}
+                            test
+                        </div>
+
 
 
 
@@ -146,7 +151,40 @@
                 total = total.toFixed(2);
 
                 return total;
+            },
+            departure() {
+                let depData = [];
+                let myState = this.$store.state;
+
+                myState.passengers.forEach((pap) => {
+
+                    if (pap.totalBags > 0) {
+
+
+                        px.bags.forEach((bagLeg, idxLeg) => {
+
+                            bagLeg.types.forEach((bag) => {
+
+                                if (bag.count > 0) {
+                                    if (idxLeg === 0) {
+                                        depData.push({
+                                            count: bag.count,
+                                            title: bag.title,
+                                            price: bag.price
+                                        });
+                                    }
+                                }
+                            });
+
+                        });
+                    }
+                });
+
+                console.log('depData');
+                console.log(depData);
+                return depData;
             }
+
 
         },
         methods: {
@@ -155,6 +193,7 @@
                 this.$store.commit('changeCurrency', this.selectedCurrency);
 
             }
+
         }
     }
 </script>

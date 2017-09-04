@@ -103,6 +103,7 @@ const store = new Vuex.Store({
             humanID:1,
             type: 'ADT',
             active: true,
+            totalBags: 0,
             upgradeFare: [
                 {
                     airline: 'FR',
@@ -131,6 +132,7 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 humanID:2,
+                totalBags: 0,
                 type: 'ADT',
                 active: true,
                 upgradeFare: [
@@ -161,6 +163,7 @@ const store = new Vuex.Store({
             {
                 id: 3,
                 humanID:3,
+                totalBags: 0,
                 type: 'CNN',
                 active: true,
                 upgradeFare: [
@@ -582,6 +585,7 @@ const store = new Vuex.Store({
                 type: 'ADT',
                 humanID: papCount,
                 active: true,
+                totalBags: 0,
                 upgradeFare: [
                     {
                         airline: 'FR',
@@ -662,6 +666,8 @@ const store = new Vuex.Store({
                         pos = idx;
                     }
                 });
+
+                state.passengers[args.passengerid].totalBags++;
 
                 if (pos < 0) {
                     // first time passenger buys this type
