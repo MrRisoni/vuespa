@@ -39,27 +39,23 @@
                             </div>
                         </div>
 
-                        <div v-for="item in departure">
 
-                            <div class="row">
 
-                                <div class="col-md-12">
+                        <h5>Departure</h5>
+                        <div class="row" v-for="bag in bagData.departLeg">
 
-                                    Passenger {{item.name}}
-                                    <hr>
-
-                                </div>
+                            <div class="col-md-12">
+                                {{bag.count}} x {{bag.title}} {{bag.price}} {{getCurrency}}
                             </div>
+                        </div>
 
+                        <h5>Return</h5>
+                        <div class="row" v-for="bag in bagData.returnLeg">
 
-                            <div class="row" v-for="bag in item.bags">
-
-                                <div class="col-md-12">
-                                    {{bag.count}} x {{bag.title}} {{bag.price}} {{getCurrency}}
-                                </div>
+                            <div class="col-md-12">
+                                {{bag.count}} x {{bag.title}} {{bag.price}} {{getCurrency}}
                             </div>
-
-                        </div> <!-- end loop bags -->
+                        </div>
 
 
                         <hr>
@@ -167,46 +163,75 @@
 
                 return total;
             },
-            departure() {
-                let depData = [];
+            bagData() {
+
+
+                let bagData = {
+                    departLeg:[],
+                    returnLeg :[]
+                };
+
                 let myState = this.$store.state;
 
                 myState.passengers.forEach((pap) => {
 
                     if (pap.totalBags > 0 && pap.active) {
 
-                        let PX = {
-                            name: pap.humanID,
-                            bags: []
-                        };
-
                         pap.bags.forEach((bagLeg, idxLeg) => {
 
                             bagLeg.types.forEach((bag) => {
 
                                     if (idxLeg === 0 && bag.count>0) {
-                                        depData.push({
+                                        let pos = -1;
+
+                                        bagData.departLeg.forEach( (show) => {
+                                            if (show.key === bag.key) {
+                                                show.count++;
+                                                pos = 1;
+                                            }
+                                        });
+                                        if (pos < 0) {
+                                            bagData.departLeg.push({
+                                                count: bag.count,
+                                                title: bag.title,
+                                                price: bag.price
+                                            });
+                                        }
+
+                                    }
+
+
+                                if (idxLeg === 1 && bag.count>0) {
+                                    let pos = -1;
+
+                                    bagData.returnLeg.forEach( (show) => {
+                                        if (show.key === bag.key) {
+                                            show.count++;
+                                            pos = 1;
+                                        }
+                                    });
+                                    if (pos < 0) {
+                                        bagData.returnLeg.push({
                                             count: bag.count,
                                             title: bag.title,
                                             price: bag.price
                                         });
                                     }
 
+                                }
+
                             });
 
                         });
 
-                        PX.bags = depData;
-                        depData.push(PX);
+
                     }
+
 
 
                 });
 
-
-                console.log('depData');
-                console.log(depData);
-                return depData;
+                return bagData;
             }
 
 

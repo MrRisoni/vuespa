@@ -77,7 +77,7 @@ const store = new Vuex.Store({
             {
                 type: 'ADT',
                 name: 'Adults',
-                count: 2,
+                count: 1,
                 netPrice: 356,
                 convertedPrice: 356
 
@@ -85,7 +85,7 @@ const store = new Vuex.Store({
             {
                 type: 'CNN',
                 name: 'Children',
-                count: 1,
+                count: 0,
                 netPrice: 275,
                 convertedPrice: 275
 
@@ -128,69 +128,7 @@ const store = new Vuex.Store({
                     types: []
                 }
             ]
-        },
-            {
-                id: 1,
-                humanID:2,
-                totalBags: 0,
-                type: 'ADT',
-                active: true,
-                upgradeFare: [
-                    {
-                        airline: 'FR',
-                        option: '',
-                    },
-                    {
-                        airline: 'A3',
-                        option: '',
-                    },
-                    {
-                        airline: 'BA',
-                        option: '',
-                    }
-                ],
-                bags: [
-                    {
-                        route: 'ATH-LHR',
-                        types: []
-                    },
-                    {
-                        route: 'LHR-ATH',
-                        types: []
-                    }
-                ]
-            },
-            {
-                id: 2,
-                humanID:3,
-                totalBags: 0,
-                type: 'CNN',
-                active: true,
-                upgradeFare: [
-                    {
-                        airline: 'FR',
-                        option: '',
-                    },
-                    {
-                        airline: 'A3',
-                        option: '',
-                    },
-                    {
-                        airline: 'BA',
-                        option: '',
-                    }
-                ],
-                bags: [
-                    {
-                        route: 'ATH-LHR',
-                        types: []
-                    },
-                    {
-                        route: 'LHR-ATH',
-                        types: []
-                    }
-                ]
-            }
+        }
         ],
         count: 0,
         bags: 12,
