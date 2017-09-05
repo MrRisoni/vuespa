@@ -78,8 +78,8 @@
         methods: {
             changePaxType(passengerid)
             {
-                console.log('Name Component', this.selectedPaxType, this.passengerid-1);
-                this.$store.commit('changePaxType',  { psgrid: this.passengerid-1 , type: this.selectedPaxType});
+                console.log('Name Component', this.selectedPaxType, this.passengerid);
+                this.$store.commit('changePaxType',  { psgrid: this.passengerid , type: this.selectedPaxType});
             }
         }
     }

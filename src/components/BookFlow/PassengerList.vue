@@ -4,7 +4,7 @@
 
 
         <div v-for="psgr of passengers">
-            <passenger :id="psgr.id"></passenger>
+            <passenger :id="psgr.id" :humanID="psgr.humanID"></passenger>
         </div>
 
 

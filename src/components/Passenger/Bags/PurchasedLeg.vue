@@ -5,7 +5,7 @@
 
             <!-- shows what you have purchased -->
             <div class="card">
-                <div class="card-header bg-info">{{route}}</div>
+                <div class="card-header bg-info">{{route}} dddfd</div>
 
                 <div class="card-body">
 
@@ -62,6 +62,7 @@
         },
         computed: {
             boughtBags() {
+                console.log('boughtBags ' + this.passengerid);
                 return this.$store.state.passengers[this.passengerid].bags[this.leg].types;
             }
         }

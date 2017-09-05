@@ -11,7 +11,7 @@
                         <div class="row">
 
                             <div class="col-md-5">
-                                Passenger # {{id}}
+                                Passenger # {{humanID}}
                             </div>
 
                             <div class="col-md-5"></div> <!-- offset does not work -->
@@ -91,7 +91,7 @@
 
 
     export default {
-        props: ['id'],
+        props: ['id', 'humanID'],
         components: {
             'name': Name,
             'bags': Bags,

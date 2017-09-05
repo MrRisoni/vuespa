@@ -1,5 +1,5 @@
 <template>
-    <div class="pricebox">
+    <div class="pricebox ">
 
         <div class="row">
             <div class="col-md-12">
@@ -39,12 +39,27 @@
                             </div>
                         </div>
 
-                        <div v-for="pap in appState.passengers">
-                           {{pap.totalBags}}
-                            test
-                        </div>
+                        <div v-for="item in departure">
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    Passenger {{item.name}}
+                                    <hr>
+
+                                </div>
+                            </div>
 
 
+                            <div class="row" v-for="bag in item.bags">
+
+                                <div class="col-md-12">
+                                    {{bag.count}} x {{bag.title}} {{bag.price}} {{getCurrency}}
+                                </div>
+                            </div>
+
+                        </div> <!-- end loop bags -->
 
 
                         <hr>
@@ -158,27 +173,36 @@
 
                 myState.passengers.forEach((pap) => {
 
-                    if (pap.totalBags > 0) {
+                    if (pap.totalBags > 0 && pap.active) {
 
+                        let PX = {
+                            name: pap.humanID,
+                            bags: []
+                        };
 
-                        px.bags.forEach((bagLeg, idxLeg) => {
+                        pap.bags.forEach((bagLeg, idxLeg) => {
 
                             bagLeg.types.forEach((bag) => {
 
-                                if (bag.count > 0) {
-                                    if (idxLeg === 0) {
+                                    if (idxLeg === 0 && bag.count>0) {
                                         depData.push({
                                             count: bag.count,
                                             title: bag.title,
                                             price: bag.price
                                         });
                                     }
-                                }
+
                             });
 
                         });
+
+                        PX.bags = depData;
+                        depData.push(PX);
                     }
+
+
                 });
+
 
                 console.log('depData');
                 console.log(depData);

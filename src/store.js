@@ -99,7 +99,7 @@ const store = new Vuex.Store({
             }
         ],
         passengers: [{
-            id: 1,
+            id: 0,
             humanID:1,
             type: 'ADT',
             active: true,
@@ -130,7 +130,7 @@ const store = new Vuex.Store({
             ]
         },
             {
-                id: 2,
+                id: 1,
                 humanID:2,
                 totalBags: 0,
                 type: 'ADT',
@@ -161,7 +161,7 @@ const store = new Vuex.Store({
                 ]
             },
             {
-                id: 3,
+                id: 2,
                 humanID:3,
                 totalBags: 0,
                 type: 'CNN',
@@ -578,12 +578,18 @@ const store = new Vuex.Store({
         },
         addPassenger(state) {
 
-            let papCount = state.passengers.length + 1;
+            let activePapCount = 0;
+
+            state.passengers.forEach( (pap) => {
+                if (pap.active) {
+                    activePapCount++;
+                }
+            });
 
             let new_pap = {
-                id: papCount,
+                id: state.passengers.length,
                 type: 'ADT',
-                humanID: papCount,
+                humanID: activePapCount,
                 active: true,
                 totalBags: 0,
                 upgradeFare: [
