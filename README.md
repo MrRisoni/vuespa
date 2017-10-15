@@ -8,6 +8,3 @@ inspired from kiwi.com
 ABADONNED PROJECT ( though while crafting it , I grasped the notion of state management)
 
 
-
-
-https://vast-gorge-45385.herokuapp.com/#/book  (WIP)
